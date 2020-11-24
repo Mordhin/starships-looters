@@ -1,2 +1,24 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home">
+  <div class="container">
+    <h1 class="home-title">The best space ships of the universe</h1>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h2>Ships selection</h2>
+  <div class="cards c-home">
+    <% @ships.each do |ship| %>
+      <div class="card">
+        <%= image_tag flat.picture rescue image_tag 'missing.jpg' %>
+        <div class="card-body">
+          <h3><%= ship.name %></h3>
+          <p><%= ship.description %></p>
+          <span>Price per day: <%= "#{number_with_delimiter(ship.price_per_day, delimiter: '.')} ₹"%></span>
+        </div>
+        <div class="card-footer">
+          <%= link_to "More info", "#", class: "card-link text-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

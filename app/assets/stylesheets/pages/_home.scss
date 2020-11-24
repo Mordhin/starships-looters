@@ -1,1 +1,10 @@
 // Specific CSS for your home-page
+.home {
+  background-image: asset-url('home.jpg');
+  height: 100vh;
+}
+
+.home-title {
+  color: $light-gray;
+  padding-top: 40vh;
+}

@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
   before_action :find_ship, only: %i[new create destroy]
-
+ 
+  def index
+    @bookings = Booking.all
+    #Replace by scope when pundit
+    end
+   
   def new
     @booking = Booking.new
   end
@@ -30,5 +35,6 @@ class BookingsController < ApplicationController
 
   def set_params
     params.require(:bookings).permit(:date_start, :date_end, :crew_size)
-  end
+
+ 
 end
