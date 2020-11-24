@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Booking Requests</h1>
+  <div class="booking_cards">
+    <% @bookings.each do |booking| %>
+      <%# <%= link_to 'booking', do %>
+        <%= render 'shared/bookingcard', booking: booking %>
+      <%# <% end %>
+    <% end %>
+  </div>
+</div>
