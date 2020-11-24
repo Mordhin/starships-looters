@@ -1,0 +1,10 @@
+<h1>Ships available</h1>
+
+
+<ul class="list-group shadow-sm">
+  <% @ships.each do |ship| %>
+    <li class="list-group-item">
+        <%= link_to ship.name, ship_path(ship), class: "" %>
+    </li>
+  <% end %>
+</ul>
