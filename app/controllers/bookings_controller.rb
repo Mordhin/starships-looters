@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_ship, only: %i[new create]
+  before_action :find_ship, only: %i[new create destroy]
 
   def new
     @booking = Booking.new
@@ -12,11 +12,15 @@ class BookingsController < ApplicationController
     @booking.user = @user
 
     if @booking.save
-      redirect_to bookings_path, notice: 'Your Booking has been created'
+      redirect_to bookings_path, notice: 'Your booking has been created'
     else
       render :new
     end
+  end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    redirect_to ship_path(@ship), notice: 'Your booking had been deleted'
   end
 
   private
