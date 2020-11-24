@@ -1,11 +1,11 @@
 <h1><%= @ship.name %></h1>
 
-<ul>
-    <li>description: <%= @ship.description %></li>
-    <li>location: <%= @ship.location %></li>
-    <li>purpose: <%= @ship.purpose %></li>
-    <li>size: <%= @ship.size %></li>
-    <li>crew_capacity: <%= @ship.crew_capacity %></li>
-    <li>price per day: <%= @ship.price_per_day %></li>
-    <li>Available?: <%= @ship.available %></li>
+<ul class="list-group shadow-sm">
+    <li class="list-group-item">description: <%= @ship.description %></li>
+    <li class="list-group-item">location: <%= @ship.location %></li>
+    <li class="list-group-item">purpose: <%= @ship.purpose %></li>
+    <li class="list-group-item">size: <%= @ship.size %></li>
+    <li class="list-group-item">crew_capacity: <%= @ship.crew_capacity %></li>
+    <li class="list-group-item">price per day: <%= @ship.price_per_day %></li>
+    <li class="list-group-item">Available?: <%= @ship.available %></li>
 </ul>
