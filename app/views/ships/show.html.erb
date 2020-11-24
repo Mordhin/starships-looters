@@ -6,6 +6,6 @@
     <li class="list-group-item">purpose: <%=  @ship.purpose.capitalize if @ship.purpose %></li>
     <li class="list-group-item">size: <%= @ship.size %></li>
     <li class="list-group-item">crew_capacity: <%= @ship.crew_capacity %></li>
-    <li class="list-group-item">price per day: <%= @ship.price_per_day %></li>
+    <li class="list-group-item">price per day: <%= "#{number_with_delimiter(@ship.price_per_day, delimiter: '.')} ₹"%></li>
     <li class="list-group-item">Available?: <%= @available_status %></li>
 </ul>
