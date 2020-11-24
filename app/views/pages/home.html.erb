@@ -13,9 +13,7 @@
         <div class="card-body">
           <h3><%= ship.name %></h3>
           <p><%= ship.description %></p>
-          <div class="flat-icons">
-            <span>Price per day: <%= "#{number_with_delimiter(ship.price_per_day, delimiter: '.')} ₹"%></span>
-          </div>
+          <span>Price per day: <%= "#{number_with_delimiter(ship.price_per_day, delimiter: '.')} ₹"%></span>
         </div>
         <div class="card-footer">
           <%= link_to "More info", "#", class: "card-link text-primary" %>
