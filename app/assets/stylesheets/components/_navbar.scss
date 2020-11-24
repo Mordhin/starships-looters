@@ -21,5 +21,11 @@
 }
 
 .nav-link {
-  background-color: $light-gray;
+  background-color: white;
+}
+
+.navbar-nav {
+  background-color: white;
+  padding: 3px 10px;
+  border-radius: 25px;
 }
