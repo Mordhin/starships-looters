@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :ships
   has_many :bookings
 
-  
+  validates :email, :encrypted_password, :nickname, presence: true
     
 end
