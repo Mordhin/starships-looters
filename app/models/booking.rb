@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
   validates :user, :ship, presence: true
   validates :date_start, :date_end, presence: true
   validate :end_after_start
-  validates :crew_size, :date_start, :date_end, numericality: { only_integer: true }
+  validates :crew_size, numericality: { only_integer: true }
 
   private
 
