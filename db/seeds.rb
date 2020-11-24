@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'date'
 # DELETING ALL DATA
 Booking.delete_all
 Ship.delete_all
@@ -57,8 +58,27 @@ users.each do |user|
     ship.size = SHIPS_SIZES.sample
     ship.crew_capacity = Random.new.rand(1..12_000)
     ship.save
-    puts ship.errors.messages
   end
 end
 
 # BOOKINGS SEEDING
+BOOKINGS_STATUSES = ['created', 'updated', 'validated', 'cancelled', 'paid', 'closed']
+BOOKINGS_STATUSES_WITHOUT_CLOSED = ['created', 'updated', 'validated', 'cancelled', 'paid']
+User.all.each do |user|
+  other_ships = Ship.where('user_id != ?', user.id)
+  3.times do
+    year = [2021, 2022, 2023].sample
+    month = (1..12).to_a.sample
+    day = (1..28).to_a.sample
+    ship = other_ships.sample
+    random_date = Date.new(year, month, day)
+    Booking.create!(
+      user_id: user.id,
+      ship_id: ship.id,
+      date_start: random_date,
+      date_end: random_date + Random.new.rand(1..30),
+      crew_size: (1..ship.crew_capacity).to_a.sample,
+      status: BOOKINGS_STATUSES_WITHOUT_CLOSED.sample
+    )
+  end
+end
