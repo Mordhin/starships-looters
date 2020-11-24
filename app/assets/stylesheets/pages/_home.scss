@@ -1,1 +1,10 @@
 // Specific CSS for your home-page
+.home {
+  background: url("home.jpg");
+  height: 100vh;
+}
+
+h1 {
+  color: $light-gray;
+  padding-top: 40vh;
+}
