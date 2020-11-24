@@ -15,5 +15,8 @@ USERS_NAMES.each do |username|
     nickname: username,
     password: '123456',
     password_confirmation: '123456'
+    # admin: username == 'admin'
   )
 end
+
+
