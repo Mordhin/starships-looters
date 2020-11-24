@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# USERS SEEDING : ONE FOR EACH + ONE ADMIN
+User.delete_all
+USERS_NAMES = ['adrien', 'julien', 'jp', 'stephane', 'admin']
+USERS_NAMES.each do |username|
+  User.create!(
+    email: "#{username}@email.com",
+    nickname: username,
+    password: '123456',
+    password_confirmation: '123456'
+  )
+end
