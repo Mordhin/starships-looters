@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(set_params)
     @user = @ship.user
     @booking.ship = @ship
-    @booking.user = @user
+    @booking.user = current_user
 
     if @booking.save
       redirect_to bookings_path, notice: 'Your booking has been created'
