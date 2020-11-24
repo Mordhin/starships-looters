@@ -7,6 +7,22 @@ class ShipsController < ApplicationController
     @ship = Ship.find(params[:id])
     @available_status = available_status(@ship.available)
     
+    
+  end
+
+  def new
+    @ship = Ship.new
+  end
+
+  def create
+    @ship = Ship.new(ship_params)
+    user = current_user
+    @ship.user = user
+
+    
+    @ship.save
+    
+    redirect_to ship_path(@ship)
   end
 
   private
@@ -19,5 +35,7 @@ class ShipsController < ApplicationController
     end
   end
   
+  def ship_params
+    params.require(:ship).permit(:name, :description, :location, :purpose, :size, :crew_capacity, :price_per_day, :available, :photo)
+  end
 end
-# frfrfr
