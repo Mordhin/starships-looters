@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :ships
   has_many :bookings
+
+  
+    
 end
