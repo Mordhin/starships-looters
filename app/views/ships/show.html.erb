@@ -8,7 +8,7 @@
             <h5>Description</h5>
             <div><%= @ship.description.capitalize %></div>
             <div class="text-center">
-              <%= link_to "Book it now", "#", class: "btn btn-primary w-75 mt-5" %>
+              <%= link_to "Book it now", new_ship_booking_path(@ship.id), class: "btn btn-primary w-75 mt-5" %>
             </div>
           </div>
         </div>
