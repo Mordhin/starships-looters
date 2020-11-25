@@ -1,7 +1,7 @@
 class ShipsController < ApplicationController
   before_action :set_ship, only: [:show, :destroy, :edit, :update]
   def index
-    @ships = Ship.all
+    @ships = Ship.all.order('name ASC')
   end
 
   def show
@@ -37,7 +37,7 @@ class ShipsController < ApplicationController
   end
 
   def profil
-    @ships = Ship.where(user_id: current_user.id)
+    @ships = Ship.where(user_id: current_user.id).order('name ASC')
   end
 
   private
