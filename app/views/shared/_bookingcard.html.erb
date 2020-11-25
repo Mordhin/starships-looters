@@ -33,7 +33,7 @@
       </div>
       <div class="crew">
         <h5>Attendants:</h5>
-        <p> <%= booking.crew_size %></p>
+        <p> <%= number_with_delimiter(booking.crew_size, delimiter:'.') %></p>
       </div>
       <div class="buttons">
         <%= link_to decline_booking_path(booking), method: :patch do %>
