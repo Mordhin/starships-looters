@@ -12,7 +12,7 @@
   <div class="cards c-home">
     <% @ships.each do |ship| %>
       <div class="card">
-        <%= image_tag flat.picture rescue image_tag 'missing.jpg' %>
+        <%= cl_image_tag ship.photo.key rescue image_tag 'missing.jpg' %>
         <div class="card-body">
           <h3><%= ship.name %></h3>
           <p><%= ship.description %></p>
