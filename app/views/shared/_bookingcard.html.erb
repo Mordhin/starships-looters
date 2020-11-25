@@ -8,16 +8,26 @@
       <p classe ='card-title'>
         <%= booking.ship.user.nickname %>
       </p>
-        <h5>Starting Date</h5>
-        <p><%= booking.date_start %></p>
-        <h5> Ending Date</h5>
-        <p><%= booking.date_end %></p>
+      <div class="d-flex">
+        <div class="start mr-4">
+          <h5>Starting Date</h5>
+          <p><%= booking.date_start %></p>
+        </div>
+        <div class="end">
+          <h5> Ending Date</h5>
+          <p><%= booking.date_end %></p>
+        </div>
+      </div>
     </div>
-    <div class="card-footer" >
-      <h5>Status:</h5>
-      <p><%=booking.status %></p>
-      <h5>Crew size:</h5>
-      <p> <%= booking.crew_size %></p>
+    <div class="card-footer d-flex" >
+      <div class="status mr-4">
+        <h5>Status:</h5>
+        <p><%=booking.status %></p>
+      </div>
+      <div class="crew">
+        <h5>Crew size:</h5>
+        <p> <%= booking.crew_size %></p>
+      </div>
     </div>
   </div>
 </div>
