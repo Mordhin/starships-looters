@@ -1,0 +1,16 @@
+<%= simple_form_for(@ship) do |f| %>
+  <!-- <%= f.hidden_field :user_id, value: current_user.id %> -->
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.input :purpose, collection: ['war', 'holiday', 'race', 'planet eradication', 'galactical space party'] %>
+  <%= f.input :size, collection: ['micro', 'small', 'big', 'planetwide'] %>
+  <%= f.input :crew_capacity %>
+  <%= f.input :price_per_day %>
+  <%= f.input :available, :input_html => { :checked => true } %>
+  <%= f.input :photo, as: :file %>
+  <div class="d-flex">
+    <%= link_to "Cancel", ships_path, class: "btn btn-danger w-100 mr-1" %>
+    <%= f.submit "Submit", class: "btn btn-primary w-100"%>
+  </div>
+<% end %>
