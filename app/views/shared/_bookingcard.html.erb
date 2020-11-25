@@ -36,10 +36,10 @@
         <p> <%= booking.crew_size %></p>
       </div>
       <div class="buttons">
-      <%= link_to validate_booking_path do %>
+      <%= link_to validate_booking_path(booking) do %>
         <a class = 'btn btn-danger'>Decline</a>
         <% end %>
-        <%= link_to decline_booking_path do %>
+        <%= link_to decline_booking_path(booking) do %>
         <a class = 'btn btn-success'>Accept</a>
         <% end %>
       </div>
