@@ -29,9 +29,11 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 import { navbarScroll } from '../components/navbar_scroll';
+import { displayShipDetails } from '../components/ss_show_details';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   navbarScroll();
+  displayShipDetails();
 });
