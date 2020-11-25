@@ -1,17 +1,32 @@
-<h2>Ships available</h2>
+<div class="container">
+  <h2>Ships available</h2>
 
 
-<ul class="list-group shadow-sm">
-  <% @ships.each do |ship| %>
-    <li class="list-group-item">
-        <%= link_to ship.name, ship_path(ship), class: "" %>
-    </li>
-  <% end %>
-</ul>
+  <div class="cards c-index">
+    <% @ships.each do |ship| %>
+      <div class="card">
+        <%= cl_image_tag ship.photo.key, :effect=>"gradient_fade:0.1,y_-0.1" rescue image_tag 'missing.jpg' %>
+        <div class="card-body">
+          <h3><%= ship.name %></h3>
+          <div class="price"><%= "#{number_with_delimiter(ship.price_per_day, delimiter: '.')} ₹"%> /day</div>
+          <p><%= ship.description %></p>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <div>
+            <%= link_to "More info", ship_path(ship.id), class: "card-link text-primary" %>
+          </div>
+          <div>
+            <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, ship_path(ship), method: :delete, data: { confirm: "Are you sure?"}, class: "trash pr-2" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<div class="d-flex justify-content-center">
-  <%= link_to "Add new ship", new_ship_path, class: "btn" %>
-</div>
-<div class="d-flex justify-content-center">
-  <%= link_to "Back to home", root_path, class: "btn" %>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Add new ship", new_ship_path, class: "btn" %>
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Back to home", root_path, class: "btn" %>
+  </div>
 </div>

@@ -3,9 +3,68 @@
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 25px;
   row-gap: 25px;
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.card {
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
   width: 100%;
   background-size: cover;
 }
+
+.c-index {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 25px;
+  row-gap: 25px;
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.price {
+  color: grey;
+  font-size: 12px;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+@media(max-width: 992px) {
+  .c-index {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .c-home {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .c-index {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .c-home {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 544px) {
+  .c-index {
+    grid-template-columns: 1fr;
+  }
+}
+
