@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :find_ship, only: %i[new create destroy]
+  before_action :find_booking, only: %i[destroy validate]
 
   def index
     @bookings = Booking.all
@@ -23,11 +24,26 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     redirect_to ship_path(@ship), notice: 'Your booking had been deleted'
   end
 
+  def validate
+    @booking.status = 'validated'
+    @booking.save
+    redirect_to bookings_path
+  end
+
+  def decline
+    @booking.status = 'cancelled'
+    @booking.save
+    redirect_to bookings_path
+  end
+
   private
+
+  def find_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def find_ship
     @ship = Ship.find(params[:ship_id])
