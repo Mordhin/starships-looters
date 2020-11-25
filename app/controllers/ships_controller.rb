@@ -1,31 +1,38 @@
 class ShipsController < ApplicationController
+  before_action :set_ship, only: [:show, :destroy]
   def index
     @ships = Ship.all
   end
 
   def show
-    @ship = Ship.find(params[:id])
     @available_status = available_status(@ship.available)
-    
-    
   end
-
+  
   def new
     @ship = Ship.new
   end
-
+  
   def create
     @ship = Ship.new(ship_params)
     user = current_user
     @ship.user = user
-
+    
     
     @ship.save
     
     redirect_to ship_path(@ship)
   end
-
+  
+  def destroy
+    @ship.destroy
+    redirect_to ships_path
+  end
+  
   private
+  
+  def set_ship
+    @ship = Ship.find(params[:id])
+  end
 
   def available_status(available)
     if available
