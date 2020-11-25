@@ -1,4 +1,14 @@
 <div class="container mt-5">
+  <div class="card-sm d-flex justify-content-around align-items-center">
+    <h2>Will you ride <%= @ship.name %> ?</h2>
+    <div><%= cl_image_tag @ship.photo.key, width: 200, class: 'rounded' if @ship.photo.attached? %></div>
+    <div>
+      <div> <strong>Owner nickname : </strong><%=@ship.user.nickname.capitalize%></div>
+      <div> <strong>Crew capacity : </strong><%=@ship.crew_capacity%> </div>
+      <div> <strong>Price per day : </strong><%= number_with_delimiter(@ship.price_per_day, delimiter: '.')%> ₹</div>
+    </div>
+  </div>
+
   <%= simple_form_for ([@ship,@booking]) do |f| %>
   <%= f.input :crew_size %>
   <%= f.input :date_start %>
