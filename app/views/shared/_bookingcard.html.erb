@@ -35,6 +35,7 @@
         <h5>Attendants:</h5>
         <p> <%= number_with_delimiter(booking.crew_size, delimiter:'.') %></p>
       </div>
+      <!-- Work in progress -->
       <div class="buttons">
         <%= link_to decline_booking_path(booking), method: :patch do %>
           <button class = 'btn btn-danger'>Decline</button>
