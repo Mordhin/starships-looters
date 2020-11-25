@@ -4,21 +4,26 @@
       <%= booking.ship.name %>
     </h4>
     <div class="card-body d-flex justify-content-around">
-      <div class="owner mr-4">
-        <h5>Owner</h5>
-        <p classe ='card-title'>
-          <%= booking.ship.user.nickname %>
-      </div>
-      </p>
+      <%= cl_image_tag booking.ship.photo.key, class: "w-25" if booking.ship.photo.attached? %>
       <div class="d-flex">
-        <div class="start mr-4">
-          <h5>Starting Date</h5>
-          <p><%= booking.date_start %></p>
+        <div class="owner mr-4">
+          <h5>Owner</h5>
+          <p classe ='card-title'>
+            <%= booking.ship.user.nickname %>
+          </p>
         </div>
-        <div class="end">
-          <h5> Ending Date</h5>
-          <p><%= booking.date_end %></p>
-        </div>
+          <div class="start mr-4">
+            <h5>Starting Date</h5>
+            <p>
+              <%= booking.date_start %>
+            </p>
+          </div>
+          <div class="end">
+            <h5> Ending Date</h5>
+            <p>
+              <%= booking.date_end %>
+            </p>
+          </div>
       </div>
     </div>
     <div class="card-footer d-flex d-flex justify-content-around align-items-center" >
