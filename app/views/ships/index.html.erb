@@ -15,16 +15,13 @@
           <div>
             <%= link_to "More info", ship_path(ship.id), class: "card-link text-primary" %>
           </div>
-          <div>
-            <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, ship_path(ship), method: :delete, data: { confirm: "Are you sure?"}, class: "trash pr-2" %>
-          </div>
         </div>
       </div>
     <% end %>
   </div>
 
   <div class="d-flex justify-content-center">
-    <%= link_to "Add new ship", new_ship_path, class: "btn" %>
+    <%= link_to "See my ships", my_ships_path, class: "btn" %>
   </div>
   <div class="d-flex justify-content-center">
     <%= link_to "Back to home", root_path, class: "btn" %>
