@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :ships do
     resources :bookings, only: %i[new create]
   end
+
+  get 'my_ships', to: 'ships#profil', as: :my_ships
 end

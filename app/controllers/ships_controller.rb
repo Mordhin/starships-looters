@@ -1,7 +1,7 @@
 class ShipsController < ApplicationController
   before_action :set_ship, only: [:show, :destroy, :edit, :update]
   def index
-    @ships = Ship.all
+    @ships = Ship.all.order('name ASC')
   end
 
   def show
@@ -34,6 +34,10 @@ class ShipsController < ApplicationController
   def update
     @ship.update(ship_params)
     redirect_to ship_path(@ship)
+  end
+
+  def profil
+    @ships = Ship.where(user_id: current_user.id).order('name ASC')
   end
 
   private
