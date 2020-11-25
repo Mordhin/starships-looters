@@ -62,8 +62,8 @@ users.each do |user|
 end
 
 # BOOKINGS SEEDING
-BOOKINGS_STATUSES = ['created', 'updated', 'validated', 'cancelled', 'paid', 'closed']
-BOOKINGS_STATUSES_WITHOUT_CLOSED = ['created', 'updated', 'validated', 'cancelled', 'paid']
+BOOKINGS_STATUSES = ['pending', 'validated', 'cancelled', 'paid', 'closed']
+BOOKINGS_STATUSES_WITHOUT_CLOSED = ['pending', 'validated', 'cancelled', 'paid']
 User.all.each do |user|
   other_ships = Ship.where('user_id != ?', user.id)
   3.times do
