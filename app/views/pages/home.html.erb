@@ -1,6 +1,9 @@
-<div class="home">
+<div class="home" id="home">
   <div class="container">
     <h1 class="home-title">The best space ships of the universe</h1>
+    <div class="text-center mt-5">
+      <h1><%= link_to "Enter", ships_path(), class: "btn btn-info home-color" %></h1>
+    </div>
   </div>
 </div>
 
@@ -16,7 +19,7 @@
           <span>Price per day: <%= "#{number_with_delimiter(ship.price_per_day, delimiter: '.')} ₹"%></span>
         </div>
         <div class="card-footer">
-          <%= link_to "More info", "#", class: "card-link text-primary" %>
+          <%= link_to "More info", ship_path(ship.id), class: "card-link text-primary" %>
         </div>
       </div>
     <% end %>

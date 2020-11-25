@@ -8,3 +8,19 @@
   color: $light-gray;
   padding-top: 40vh;
 }
+
+
+.home-color {
+  color: black;
+  background-color: white;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 30px;
+  border: 3px solid white;
+  padding: 6px 20px;
+  &:hover {
+    border: 3px solid white;
+    background-color: black;
+    color: white;
+  }
+}
