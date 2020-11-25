@@ -3,10 +3,12 @@
     <h4 class ="card-header">
       <%= booking.ship.name %>
     </h4>
-    <div class="card-body">
-      <h5>Owner</h5>
-      <p classe ='card-title'>
-        <%= booking.ship.user.nickname %>
+    <div class="card-body d-flex justify-content-around">
+      <div class="owner mr-4">
+        <h5>Owner</h5>
+        <p classe ='card-title'>
+          <%= booking.ship.user.nickname %>
+      </div>
       </p>
       <div class="d-flex">
         <div class="start mr-4">
@@ -19,14 +21,18 @@
         </div>
       </div>
     </div>
-    <div class="card-footer d-flex" >
-      <div class="status mr-4">
+    <div class="card-footer d-flex d-flex justify-content-around align-items-center" >
+      <div class="status">
         <h5>Status:</h5>
         <p><%=booking.status %></p>
       </div>
       <div class="crew">
         <h5>Crew size:</h5>
         <p> <%= booking.crew_size %></p>
+      </div>
+      <div class="buttons">
+        <a href="#" class = 'btn btn-danger'>Decline</a>
+        <a href="#" class = 'btn btn-success'>Accept</a>
       </div>
     </div>
   </div>
