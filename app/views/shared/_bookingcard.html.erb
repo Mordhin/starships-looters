@@ -9,7 +9,7 @@
         <div class="owner mr-4">
           <h5>Owner</h5>
           <p classe ='card-title'>
-            <%= booking.ship.user.nickname %>
+            <%= booking.ship.user.nickname.capitalize %>
           </p>
         </div>
           <div class="start mr-4">
@@ -29,10 +29,10 @@
     <div class="card-footer d-flex d-flex justify-content-around align-items-center" >
       <div class="status">
         <h5>Status:</h5>
-        <p><%=booking.status %></p>
+        <p><%=booking.status.capitalize %></p>
       </div>
       <div class="crew">
-        <h5>Crew size:</h5>
+        <h5>Attendants:</h5>
         <p> <%= booking.crew_size %></p>
       </div>
       <div class="buttons">

@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <%= simple_form_for ([@ship,@booking]) do |f| %>
-  <%= f.input :crew_size %>
+  <%= f.input :crew_size, label: 'Attendants',input_html: { min: 0 }, placeholder: 'Enter how many people will board please' %>
   <%= f.input :date_start %>
   <%= f.input :date_end %>
   <%= f.submit class: 'btn btn-success' %>

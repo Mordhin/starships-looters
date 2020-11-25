@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(set_params)
     @booking.ship = @ship
     @booking.user = current_user
+    @booking.status = 'Pending'
 
     if @booking.save
       redirect_to bookings_path, notice: 'Your booking has been created'
@@ -28,13 +29,13 @@ class BookingsController < ApplicationController
   end
 
   def validate
-    @booking.status = 'validated'
+    @booking.status = 'Validated'
     @booking.save
     redirect_to bookings_path
   end
 
   def decline
-    @booking.status = 'cancelled'
+    @booking.status = 'Cancelled'
     @booking.save
     redirect_to bookings_path
   end
