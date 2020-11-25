@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: %i[decline validate]
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.all.order(:date_start)
     # Replace by scope when pundit
   end
 
