@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :ship
 
   validates :user, :ship, presence: true
-  validates :date_start, :date_end, presence: true
+  validates :date_start, :date_end, :crew_size, presence: true
   validate :end_after_start
   validates :crew_size, numericality: { only_integer: true }
 
