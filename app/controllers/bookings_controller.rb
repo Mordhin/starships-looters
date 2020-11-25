@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :find_ship, only: %i[new create destroy]
-  before_action :find_booking, only: %i[destroy validate]
+  before_action :find_booking, only: %i[decline validate]
 
   def index
     @bookings = Booking.all

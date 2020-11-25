@@ -36,11 +36,11 @@
         <p> <%= booking.crew_size %></p>
       </div>
       <div class="buttons">
-      <%= link_to validate_booking_path(booking) do %>
-        <a class = 'btn btn-danger'>Decline</a>
+        <%= link_to decline_booking_path(booking), method: :patch do %>
+          <button class = 'btn btn-danger'>Decline</button>
         <% end %>
-        <%= link_to decline_booking_path(booking) do %>
-        <a class = 'btn btn-success'>Accept</a>
+          <%= link_to validate_booking_path(booking), method: :patch do %>
+          <button class = 'btn btn-success'>Accept</button>
         <% end %>
       </div>
     </div>
