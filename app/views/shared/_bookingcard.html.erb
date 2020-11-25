@@ -35,14 +35,16 @@
         <h5>Attendants:</h5>
         <p> <%= number_with_delimiter(booking.crew_size, delimiter:'.') %></p>
       </div>
-      <div class="buttons">
-        <%= link_to decline_booking_path(booking), method: :patch do %>
-          <button class = 'btn btn-danger'>Decline</button>
-        <% end %>
-          <%= link_to validate_booking_path(booking), method: :patch do %>
-          <button class = 'btn btn-success'>Accept</button>
-        <% end %>
-      </div>
+      <% if  booking.ship.user_id == current_user.id && booking.status.downcase == 'pending'%>
+        <div class="buttons">
+          <%= link_to decline_booking_path(booking), method: :patch do %>
+            <button class = 'btn btn-danger'>Decline</button>
+          <% end %>
+            <%= link_to validate_booking_path(booking), method: :patch do %>
+            <button class = 'btn btn-success'>Accept</button>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
