@@ -7,9 +7,15 @@
           <div>
             <h5>Description</h5>
             <div><%= @ship.description.capitalize %></div>
-            <div class="text-center">
-              <%= link_to "Book it now", new_ship_booking_path(@ship.id), class: "btn btn-primary w-75 mt-5" %>
-            </div>
+            <% if current_user.id === @ship.user.id %>
+              <div class="text-center">
+                <%= link_to "You can't book your own ship!", '#', class: "btn btn-light w-75 mt-5" %>
+              </div>
+            <% else %>
+              <div class="text-center">
+                <%= link_to "Book it now", new_ship_booking_path(@ship.id), class: "btn btn-primary w-75 mt-5" %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="ss-header-img">
