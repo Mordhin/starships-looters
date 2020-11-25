@@ -36,6 +36,10 @@ class ShipsController < ApplicationController
     redirect_to ship_path(@ship)
   end
 
+  def profil
+    @ships = Ship.where(user_id: current_user.id)
+  end
+
   private
 
   def set_ship
