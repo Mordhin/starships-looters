@@ -6,7 +6,7 @@ class ShipsController < ApplicationController
   def show
     @ship = Ship.find(params[:id])
     @available_status = available_status(@ship.available)
-    
+    # lol
     
   end
 
