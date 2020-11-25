@@ -15,3 +15,5 @@
 <%= link_to "Back", ships_path, class: "" %>
 |
 <%= link_to "Delete", ship_path(@ship.id), method: :delete, data: {confirm: "Are you sure ?"} %>
+|
+<%= link_to "Edit", edit_ship_path(@ship.id) %>
