@@ -1,17 +1,56 @@
-<h2><%= @ship.name %></h2>
-<div>
-    <%= cl_image_tag @ship.photo.key, class: "" if @ship.photo.attached? %>
-</div>
-<ul class="list-group shadow-sm">
-    <li class="list-group-item">description: <%= @ship.description.capitalize %></li>
-    <li class="list-group-item">location: <%= @ship.location.capitalize %></li>
-    <li class="list-group-item">purpose: <%=  @ship.purpose.capitalize if @ship.purpose %></li>
-    <li class="list-group-item">size: <%= @ship.size %></li>
-    <li class="list-group-item">crew_capacity: <%= @ship.crew_capacity %></li>
-    <li class="list-group-item">price per day: <%= "#{number_with_delimiter(@ship.price_per_day, delimiter: '.')} ₹"%></li>
-    <li class="list-group-item">Availability: <%= @available_status %></li>
-</ul>
+<div class="container">
+  <ul class="list-group shadow-sm">
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between">
+        <div class="ss-header-text">
+          <h2 class="mb-5"><%= @ship.name %></h2>
+          <div>
+            <h5>Description</h5>
+            <div><%= @ship.description.capitalize %></div>
+            <div class="text-center">
+              <%= link_to "Book it now", "#", class: "btn btn-primary w-75 mt-5" %>
+            </div>
+          </div>
+        </div>
+        <div class="ss-header-img">
+          <%= cl_image_tag @ship.photo.key, class: "ship-show-picture" if @ship.photo.attached? %>
+        </div>
+      </div>
+    </li>
+    <div>
+      <button id="ss-show-details" class="btn btn-primary w-100">Show details</button>
+    </div>
+    <div class="d-none" id="ss-ship-details">
+      <li class="list-group-item d-flex">
+        <h5>Location</h5>
+        <div><%= @ship.location.capitalize %></div>
+      </li>
+      <li class="list-group-item d-flex">
+        <h5>Purpose</h5>
+        <div><%=  @ship.purpose.capitalize if @ship.purpose %></div>
+      </li>
+      <div class="d-flex">
+        <li class="list-group-item w-50 d-flex">
+          <h5>Size</h5>
+          <div><%= @ship.size %></div>
+        </li>
+        <li class="list-group-item w-50 d-flex">
+          <h5>Crew capacity</h5>
+          <div><%= number_with_delimiter(@ship.crew_capacity, delimiter: '.') %></div>
+        </li>
+      </div>
+      <li class="list-group-item d-flex">
+        <h5>Price per day</h5>
+        <div><%= "#{number_with_delimiter(@ship.price_per_day, delimiter: '.')} ₹"%></div>
+      </li>
+      <li class="list-group-item d-flex">
+        <h5>Availability</h5>
+        <div><%= @available_status %></div>
+      </li>
+    </div>
+  </ul>
 
-<%= link_to "Back", ships_path, class: "" %>
-|
-<%= link_to "Delete", ship_path(@ship.id), method: :delete, data: {confirm: "Are you sure ?"} %>
+  <%= link_to "Back", ships_path, class: "" %>
+  |
+  <%= link_to "Delete", ship_path(@ship.id), method: :delete, data: {confirm: "Are you sure ?"} %>
+</div>
