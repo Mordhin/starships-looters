@@ -1,18 +1,32 @@
-<div class="cards">
+<div class="cards mt-5">
   <div class="card">
-    <div class="description">
-      <h2></h2>
-      <p><%=booking.status %></p>
-      <p> <%= booking.crew_size %></p>
-    </div>
-    <div class="dates">
-      <div class="start">
-        <h3>Starting Date</h3>
-        <p><%= booking.date_start %></p>
+    <h4 class ="card-header">
+      <%= booking.ship.name %>
+    </h4>
+    <div class="card-body">
+      <h5>Owner</h5>
+      <p classe ='card-title'>
+        <%= booking.ship.user.nickname %>
+      </p>
+      <div class="d-flex">
+        <div class="start mr-4">
+          <h5>Starting Date</h5>
+          <p><%= booking.date_start %></p>
+        </div>
+        <div class="end">
+          <h5> Ending Date</h5>
+          <p><%= booking.date_end %></p>
+        </div>
       </div>
-      <div class="end">
-        <h3> Ending Date</h3>
-        <p><%= booking.date_end %></p>
+    </div>
+    <div class="card-footer d-flex" >
+      <div class="status mr-4">
+        <h5>Status:</h5>
+        <p><%=booking.status %></p>
+      </div>
+      <div class="crew">
+        <h5>Crew size:</h5>
+        <p> <%= booking.crew_size %></p>
       </div>
     </div>
   </div>
