@@ -22,7 +22,7 @@
           <%= image_tag "https://www.parisduckstore.fr/wp-content/uploads/2020/02/canard-bain-star-wars-min.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My ships", my_ships_path, class: "dropdown-item" %>
-            <%= link_to "My bookings", "#", class: "dropdown-item" %>
+            <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
