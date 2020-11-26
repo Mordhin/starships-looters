@@ -2,12 +2,13 @@
   width: 40%;
 }
 
-.ss-header-img {
-  width: 60%;
+.ss-header-img img {
+  object-fit: cover;
+  position: center;
 }
 
 h2, h5 {
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 h5 {
