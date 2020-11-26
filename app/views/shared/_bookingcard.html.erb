@@ -54,11 +54,11 @@
             <p><%=booking.status.capitalize %></p>
           </div>
           <% if  booking.ship.user_id == current_user.id && booking.status.downcase == 'pending'%>
-            <div class="buttons d-flex justify-content-around">
+            <div class="buttons d-flex justify-content-center">
               <%= link_to decline_booking_path(booking), method: :patch do %>
                 <button class = 'btn btn-danger'>Decline</button>
               <% end %>
-                <%= link_to validate_booking_path(booking), method: :patch do %>
+              <%= link_to validate_booking_path(booking), method: :patch do %>
                 <button class = 'btn btn-success'>Accept</button>
               <% end %>
             </div>
