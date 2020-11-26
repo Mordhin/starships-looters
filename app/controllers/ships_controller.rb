@@ -45,6 +45,14 @@ class ShipsController < ApplicationController
 
   def profil
     @ships = Ship.where(user_id: current_user.id).order('name ASC')
+    @all_my_ships = false
+
+    @search = params["search"]
+    if @search.present?
+      name = @search["name"]
+      @ships = Ship.where(user_id: current_user.id).order('name ASC').global_search(name)
+      @all_my_ships = true
+    end
   end
 
   private
