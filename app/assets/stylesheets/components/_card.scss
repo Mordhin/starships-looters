@@ -81,6 +81,10 @@ a:hover {
   }
 }
 
+.bk-footer {
+  justify-content: center;
+}
+
 // responsive
 @media(max-width: 1300px) {
   .c-index {
@@ -98,6 +102,10 @@ a:hover {
       margin-bottom: 1em;
     }
   }
+
+  .bk-footer {
+    justify-content: flex-start;
+  }
 }
 
 @media(max-width: 992px) {
@@ -109,7 +117,7 @@ a:hover {
     grid-template-columns: 1fr;
   }
   
-  .bk-header-details {
+  .bk-details {
     flex-direction: column;
   }
 }
@@ -119,7 +127,7 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
-  .bk-header-details-block {
+  .bk-split-block {
     flex-direction: column;
   }
 
