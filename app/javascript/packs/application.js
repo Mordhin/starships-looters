@@ -31,6 +31,7 @@ import "bootstrap";
 import { navbarScroll } from '../components/navbar_scroll';
 import { displayShipDetails } from '../components/ss_show_details';
 import "../plugins/flatpickr"
+import { updateBookingAmount } from '../components/update_booking_amount.js'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -39,8 +40,9 @@ document.addEventListener('turbolinks:load', () => {
   displayShipDetails();
   flatpickr(".datepicker", {
     mode: "range",
-    // dateFormat: "D d/m/Y",
+    minDate: "today",
     conjunction: " and ",
     defaultDate: ["today", new Date().fp_incr(7)]
   });
+  updateBookingAmount();
 });
