@@ -3,41 +3,45 @@
     <h4 class ="card-header">
       <%= booking.ship.name %>
     </h4>
-    <div class="card-body d-flex justify-content-around">
-      <%= cl_image_tag booking.ship.photo.key, class: "w-25" if booking.ship.photo.attached? %>
-      <div class="d-flex">
-        <div class="owner mr-4">
-          <h5>Owner</h5>
-          <p classe ='card-title'>
-            <%= booking.ship.user.nickname.capitalize %>
-          </p>
+    <div class="card-body d-flex justify-content-between bk-header">
+      <%= cl_image_tag booking.ship.photo.key if booking.ship.photo.attached? %>
+      <div class="d-flex justify-content-center bk-header-details" >
+        <div class="d-flex bk-header-details-block">
+          <div>
+            <h5>Owner</h5>
+            <p classe ='card-title'>
+              <%= booking.ship.user.nickname.capitalize %>
+            </p>
+          </div>
+          <div>
+            <h5>User</h5>
+            <p classe ='card-title'>
+              <%= booking.user.nickname.capitalize %>
+            </p>
+          </div>
         </div>
-        <div class="owner mr-4">
-          <h5>User</h5>
-          <p classe ='card-title'>
-            <%= booking.user.nickname.capitalize %>
-          </p>
-        </div>
-        <div class="start mr-4">
-          <h5>Starting Date</h5>
-          <p>
-            <%= booking.date_start %>
-          </p>
-        </div>
-        <div class="end">
-          <h5> Ending Date</h5>
-          <p>
-            <%= booking.date_end %>
-          </p>
+        <div class="d-flex bk-header-details-block">
+          <div>
+            <h5>Starting Date</h5>
+            <p>
+              <%= booking.date_start %>
+            </p>
+          </div>
+          <div>
+            <h5> Ending Date</h5>
+            <p>
+              <%= booking.date_end %>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="card-footer d-flex d-flex justify-content-around align-items-center" >
-      <div class="status">
+    <div class="card-footer d-flex justify-content-around bk-footer" >
+      <div>
         <h5>Status:</h5>
         <p><%=booking.status.capitalize %></p>
       </div>
-      <div class="crew">
+      <div>
         <h5>Attendants:</h5>
         <p> <%= number_with_delimiter(booking.crew_size, delimiter:'.') %></p>
       </div>
@@ -46,7 +50,7 @@
         <p> <%= number_with_delimiter(booking.total_amount, delimiter:'.') %> 👾</p>
       </div>
       <% if  booking.ship.user_id == current_user.id && booking.status.downcase == 'pending'%>
-        <div class="buttons">
+        <div class="buttons d-flex justify-content-around">
           <%= link_to decline_booking_path(booking), method: :patch do %>
             <button class = 'btn btn-danger'>Decline</button>
           <% end %>
