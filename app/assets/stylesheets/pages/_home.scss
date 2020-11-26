@@ -9,6 +9,9 @@
   background-position: center;
   height: 100vh;
   box-shadow: 0 .125rem .50rem rgba(black, .75);
+  .btn-success {
+    box-shadow: 0 .125rem .50rem rgba(black, .75);
+  }
 }
 
 .home-title {
@@ -45,6 +48,7 @@
 .btn-shadow {
   box-shadow: 0 .125rem .50rem rgba(black, .75);
 }
+
 
 .fa-space-shuttle {
   color: white;

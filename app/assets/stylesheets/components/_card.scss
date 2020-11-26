@@ -1,13 +1,8 @@
-.c-home {
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 25px;
-  row-gap: 25px;
-}
-
+// general
 .card {
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15);
   margin-bottom: 20px;
+  border: none;
 }
 
 .c-ship {
@@ -47,6 +42,15 @@ a:hover {
   }
 }
 
+// home
+.c-home {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 25px;
+  row-gap: 25px;
+}
+
+// ship#index
 .c-index {
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -68,6 +72,20 @@ a:hover {
   background-color: $white;
 }
 
+// My bookings
+.bk-header {
+  align-items: center;
+  img {
+    width: 200px;
+    margin-right: 1em;
+  }
+}
+
+.bk-footer {
+  justify-content: center;
+}
+
+// responsive
 @media(max-width: 1300px) {
   .c-index {
     grid-template-columns: 1fr 1fr 1fr;
@@ -76,21 +94,45 @@ a:hover {
   .c-home {
     grid-template-columns: 1fr 1fr;
   }
+
+  .bk-header {
+    flex-direction: column;
+    align-items: flex-start;
+    img {
+      margin-bottom: 1em;
+    }
+  }
+
+  .bk-footer {
+    justify-content: flex-start;
+  }
 }
 
 @media(max-width: 992px) {
   .c-index {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;  
   }
 
   .c-home {
     grid-template-columns: 1fr;
+  }
+  
+  .bk-details {
+    flex-direction: column;
   }
 }
 
 @media(max-width: 768px) {
   .c-index {
     grid-template-columns: 1fr;
+  }
+
+  .bk-split-block {
+    flex-direction: column;
+  }
+
+  .bk-footer {
+    flex-direction: column;
   }
 }
 

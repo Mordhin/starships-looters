@@ -30,7 +30,7 @@ import "bootstrap";
 
 import { navbarScroll } from '../components/navbar_scroll';
 import { displayShipDetails } from '../components/ss_show_details';
-import "../plugins/flatpickr"
+import { flatpickrCalendar } from "../plugins/flatpickr"
 import { updateBookingAmount } from '../components/update_booking_amount.js'
 
 document.addEventListener('turbolinks:load', () => {
@@ -38,11 +38,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   navbarScroll();
   displayShipDetails();
-  flatpickr(".datepicker", {
-    mode: "range",
-    minDate: "today",
-    conjunction: " and ",
-    defaultDate: ["today", new Date().fp_incr(7)]
-  });
+  flatpickrCalendar();
   updateBookingAmount();
 });
