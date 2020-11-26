@@ -2,7 +2,7 @@ require 'date'
 
 class BookingsController < ApplicationController
   before_action :find_ship, only: %i[new create destroy]
-  before_action :find_booking, only: %i[decline validate]
+  before_action :find_booking, only: %i[edit update decline validate cancel pay close]
 
   def index
     # Incoming rides
@@ -36,33 +36,54 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @ship = Ship.find(@booking.ship_id)
+  end
+
+  def update
+    @ship = Ship.find(@booking.ship_id)
+    price_before = ActiveSupport::NumberHelper::number_to_delimited(@booking.total_amount, delimiter: '.')
+    update_booking
+    price_after = ActiveSupport::NumberHelper::number_to_delimited(@booking.total_amount, delimiter: '.')
+    redirect_to bookings_path, notice: "Your booking #{@booking.id} has been edited. #{price_before} 👾 ➡ #{price_after} 👾"
+  end
+
   def destroy
-    redirect_to ship_path(@ship), notice: 'Your booking had been deleted'
+    redirect_to ship_path(@ship), notice: 'Your booking has been deleted'
   end
 
   def validate
-    @booking.status = 'Validated'
+    @booking.status = 'validated'
     save_redirect
   end
 
   def decline
-    @booking.status = 'Cancelled'
+    # increment cancel_qty
+    @booking.status = 'cancelled'
     save_redirect
   end
 
   def cancel
-    @booking.status = 'Cancelled'
+    # @booking.ship.user.cancel_qty += 1 if @booking.ship.user_id == current_user.id
+    # current_user.penalty_amount = @booking.total_amount / 10
+    # current_user.penalty_owner_id = @booking.ship.user_id if @booking.user_id == current_user.id && @booking.status = 'validated'
+    @booking.status = 'cancelled'
     save_redirect
   end
 
   def pay
-    @booking.status = 'Paid'
+    @booking.status = 'paid'
     save_redirect
   end
 
   def close
-    @booking.status = 'Closed'
+    @booking.status = 'closed'
     save_redirect
+  end
+
+  def pay_penalty
+    # current_user.penalty_amount = 0
+    # current_user.penalty_owner_id = nil
   end
 
   private
@@ -76,13 +97,14 @@ class BookingsController < ApplicationController
   end
 
   def set_params
+    # add :penalty_amount, :penalty_user_id
     params.require(:booking).permit(:date_start, :date_end, :crew_size)
   end
 
   def update_booking
     @booking.ship = @ship
     @booking.user = current_user
-    @booking.status = 'Pending'
+    @booking.status = 'pending'
     date_range = set_params[:date_start].split(' to ')
     @booking.date_start = Date.parse(date_range[0])
     @booking.date_end = Date.parse(date_range[1])

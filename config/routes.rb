@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     member do
       patch :validate
       patch :decline
+      patch :pay
+      patch :close
+      patch :cancel
     end
   end
 
