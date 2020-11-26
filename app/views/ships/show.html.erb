@@ -3,6 +3,12 @@
     <li class="list-group-item">
       <div class="d-flex justify-content-between">
         <div class="ss-header-text">
+          <div class="d-flex">
+            <% if current_user.id === @ship.user.id %>
+              <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, ship_path(@ship), method: :delete, data: { confirm: "Are you sure?"}, class: "trash pr-2" %>
+              <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_ship_path(@ship.id) %>
+            <% end %>
+          </div>
           <h2 class="mb-5"><%= @ship.name %></h2>
           <div>
             <h5>Description</h5>
@@ -57,9 +63,3 @@
   </ul>
 
 <%= link_to "Back", ships_path, class: "" %>
-<% if current_user.id === @ship.user.id %>
-  |
-  <%= link_to "Delete", ship_path(@ship.id), method: :delete, data: {confirm: "Are you sure ?"} %>
-  |
-  <%= link_to "Edit", edit_ship_path(@ship.id) %>
-<% end %>
