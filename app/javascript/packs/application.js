@@ -32,11 +32,13 @@ import { navbarScroll } from '../components/navbar_scroll';
 import { displayShipDetails } from '../components/ss_show_details';
 import { flatpickrCalendar } from "../plugins/flatpickr"
 import { updateBookingAmount } from '../components/update_booking_amount.js'
+import { footerScroll } from '../components/footer_scroll.js';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   navbarScroll();
+  footerScroll();
   displayShipDetails();
   flatpickrCalendar();
   updateBookingAmount();

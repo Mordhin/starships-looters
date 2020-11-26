@@ -1,5 +1,5 @@
 .footer {
-  background: $blue;
+    background: $blue;
   color: white;
   height: 75px;
   box-shadow: 0 .125rem .50rem rgba(black, .75);
@@ -11,4 +11,11 @@
     color: $success;
     font-size: 30px;
   }
-} 
+}
+
+.sticky{
+  position:fixed;
+  padding-top: 15px;
+  bottom:0;
+  width: 100%;
+}
