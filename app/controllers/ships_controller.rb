@@ -2,6 +2,13 @@ class ShipsController < ApplicationController
   before_action :set_ship, only: [:show, :destroy, :edit, :update]
   def index
     @ships = Ship.all.order('name ASC')
+
+    @search = params["search"]
+    if @search.present?
+      name = @search["name"]
+      @ships = Ship.global_search(name).order('name ASC')
+    end
+
   end
 
   def show
