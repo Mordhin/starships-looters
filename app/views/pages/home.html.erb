@@ -12,7 +12,7 @@
   <div class="cards c-home">
     <% @ships.each do |ship| %>
       <%= link_to ship_path(ship.id), class: "card-img" do %>
-        <div class="card" style="background-image: linear-gradient(rgba(10, 10, 10, 0.3), rgba(240, 240, 240, 0.3)), url('https://res.cloudinary.com/teka/image/upload/v1605873393/<%= ship.photo.key %>.jpg')">
+        <div class="card" style="background-image: linear-gradient(rgba(10, 10, 10, 0.3), rgba(240, 240, 240, 0.3)), url('<%= cl_image_path ship.photo.key %>')">
           <h3 class="c-ship-name"><%= ship.name %></h3>
         </div>
       <% end %>
