@@ -26,10 +26,8 @@
     <% end %>
   </div>
 
-  <div class="d-flex justify-content-center">
-    <%= link_to "See my ships", my_ships_path, class: "btn" %>
-  </div>
-  <div class="d-flex justify-content-center">
-    <%= link_to "Back to home", root_path, class: "btn" %>
+  <div class="d-flex mt-3">
+    <%= link_to "All ships", ships_path, class: "btn btn-primary mr-3" %>
+    <%= link_to "My ships", my_ships_path, class: "btn btn-primary" %>
   </div>
 </div>
