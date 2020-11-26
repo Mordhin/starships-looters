@@ -6,7 +6,11 @@ class ShipsController < ApplicationController
     @search = params["search"]
     if @search.present?
       name = @search["name"]
-      @ships = Ship.global_search(name).order('name ASC')
+      if name === ""
+        @ships = Ship.all.order('name ASC')
+      else
+        @ships = Ship.global_search(name).order('name ASC')
+      end
     end
 
   end
@@ -50,8 +54,13 @@ class ShipsController < ApplicationController
     @search = params["search"]
     if @search.present?
       name = @search["name"]
+      if name === ""
+        @ships = Ship.where(user_id: current_user.id).order('name ASC')
+        @all_my_ships = false
+      else
       @ships = Ship.where(user_id: current_user.id).order('name ASC').global_search(name)
       @all_my_ships = true
+      end
     end
   end
 

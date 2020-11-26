@@ -15,4 +15,5 @@ class Ship < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+    
 end
