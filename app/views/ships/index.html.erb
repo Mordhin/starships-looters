@@ -27,7 +27,9 @@
   </div>
 
   <div class="d-flex mt-3">
-    <%= link_to "All ships", ships_path, class: "btn btn-primary mr-3" %>
+    <% if @all_ships === true %>
+      <%= link_to "All ships", ships_path, class: "btn btn-primary mr-3" %>
+    <% end %>
     <%= link_to "My ships", my_ships_path, class: "btn btn-primary" %>
   </div>
 </div>
