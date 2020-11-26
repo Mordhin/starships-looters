@@ -1,22 +1,18 @@
-<div class="container">
-  <h2>Ships available</h2>
+<div class="container-ship-index">
+  <h2 class="mb-3">Ships available</h2>
 
 
   <div class="cards c-index">
     <% @ships.each do |ship| %>
-      <div class="card">
-        <%= cl_image_tag ship.photo.key, :effect=>"gradient_fade:0.1,y_-0.1" rescue image_tag 'missing.jpg' %>
-        <div class="card-body">
-          <h3><%= ship.name %></h3>
-          <div class="price"><%= "#{number_with_delimiter(ship.price_per_day, delimiter: '.')} ₹"%> /day</div>
-          <p><%= ship.description %></p>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <div>
-            <%= link_to "More info", ship_path(ship.id), class: "card-link text-primary" %>
+      <%= link_to ship_path(ship.id), class: "card-img" do %>
+        <div class="card" style="background-image: linear-gradient(rgba(10, 10, 10, 0.3), rgba(240, 240, 240, 0.3)), url('https://res.cloudinary.com/teka/image/upload/v1605873393/<%= ship.photo.key %>.jpg')">
+          <h3 class="c-ship-name"><%= ship.name %></h3>
+          <div class="c-ship-details">
+            <h3><%= ship.user.nickname.capitalize %></h3>
+            <h3><%= "#{number_with_delimiter(ship.price_per_day, delimiter: '.')} ₹"%></h3>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 
