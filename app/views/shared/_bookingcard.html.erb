@@ -12,18 +12,24 @@
             <%= booking.ship.user.nickname.capitalize %>
           </p>
         </div>
-          <div class="start mr-4">
-            <h5>Starting Date</h5>
-            <p>
-              <%= booking.date_start %>
-            </p>
-          </div>
-          <div class="end">
-            <h5> Ending Date</h5>
-            <p>
-              <%= booking.date_end %>
-            </p>
-          </div>
+        <div class="owner mr-4">
+          <h5>User</h5>
+          <p classe ='card-title'>
+            <%= booking.user.nickname.capitalize %>
+          </p>
+        </div>
+        <div class="start mr-4">
+          <h5>Starting Date</h5>
+          <p>
+            <%= booking.date_start %>
+          </p>
+        </div>
+        <div class="end">
+          <h5> Ending Date</h5>
+          <p>
+            <%= booking.date_end %>
+          </p>
+        </div>
       </div>
     </div>
     <div class="card-footer d-flex d-flex justify-content-around align-items-center" >
