@@ -37,14 +37,27 @@ class BookingsController < ApplicationController
 
   def validate
     @booking.status = 'Validated'
-    @booking.save
-    redirect_to bookings_path
+    save_redirect
   end
 
   def decline
     @booking.status = 'Cancelled'
-    @booking.save
-    redirect_to bookings_path
+    save_redirect
+  end
+
+  def cancel
+    @booking.status = 'Cancelled'
+    save_redirect
+  end
+
+  def pay
+    @booking.status = 'Paid'
+    save_redirect
+  end
+
+  def close
+    @booking.status = 'Closed'
+    save_redirect
   end
 
   private
@@ -69,5 +82,10 @@ class BookingsController < ApplicationController
     @booking.date_start = Date.parse(date_range[0])
     @booking.date_end = Date.parse(date_range[1])
     @booking.total_amount = ((Date.parse(date_range[1]) - Date.parse(date_range[0])) * @ship.price_per_day.to_i).to_i
+  end
+
+  def save_redirect
+    @booking.save
+    redirect_to bookings_path, notice: "Your booking is now #{@booking.status}."
   end
 end
