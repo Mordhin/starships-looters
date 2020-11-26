@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #332242;
 }
 
 .navbar-home {
@@ -11,8 +11,10 @@
   left: 0;
   z-index: 10;
   transition: 0.6;
+  
   &.scrolled {
-    background: white;
+    background: #332242;
+    box-shadow: 0 .125rem .50rem rgba(black, .75);
   }
 }
 
