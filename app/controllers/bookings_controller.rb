@@ -17,7 +17,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    date_range
   end
 
   def create
@@ -52,10 +51,6 @@ class BookingsController < ApplicationController
   end
 
   private
-
-  def date_range
-
-  end
 
   def find_booking
     @booking = Booking.find(params[:id])
