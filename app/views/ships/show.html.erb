@@ -56,10 +56,11 @@
     </div>
   </ul>
 
-<%= link_to "Back", ships_path, class: "" %>
-<% if current_user.id === @ship.user.id %>
-  |
-  <%= link_to "Delete", ship_path(@ship.id), method: :delete, data: {confirm: "Are you sure ?"} %>
-  |
-  <%= link_to "Edit", edit_ship_path(@ship.id) %>
-<% end %>
+  <%= link_to "Back", ships_path, class: "" %>
+  <% if current_user.id === @ship.user.id %>
+    |
+    <%= link_to "Delete", ship_path(@ship.id), method: :delete, data: {confirm: "Are you sure ?"} %>
+    |
+    <%= link_to "Edit", edit_ship_path(@ship.id) %>
+  <% end %>
+</div>
