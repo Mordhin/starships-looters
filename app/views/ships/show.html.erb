@@ -41,7 +41,32 @@
       </li>
       <li class="list-group-item d-flex">
         <h5>Purpose</h5>
-        <div><%=  @ship.purpose.capitalize if @ship.purpose %></div>
+        <% if @ship.purpose == 'war' %>
+          <div>
+            <i class="fas fa-bomb"></i>
+            <%=  @ship.purpose.capitalize if @ship.purpose %>
+          </div>
+        <% elsif @ship.purpose == 'holiday' %>
+          <div>
+            <i class="fas fa-umbrella-beach"></i>
+            <%=  @ship.purpose.capitalize if @ship.purpose %>
+          </div>
+        <% elsif @ship.purpose == 'galactical space party' %>
+          <div>
+            <i class="fas fa-glass-cheers"></i>
+            <%=  @ship.purpose.capitalize if @ship.purpose %>
+          </div>
+        <% elsif @ship.purpose == 'planet eradication' %>
+          <div>
+            <i class="fas fa-meteor"></i>
+            <%=  @ship.purpose.capitalize if @ship.purpose %>
+          </div>
+        <% elsif @ship.purpose == 'race' %>
+          <div>
+            <i class="fas fa-fighter-jet"></i>
+            <%=  @ship.purpose.capitalize if @ship.purpose %>
+          </div>
+        <% end %>
       </li>
       <div class="d-flex">
         <li class="list-group-item w-50 d-flex">
