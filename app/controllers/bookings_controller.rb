@@ -6,12 +6,12 @@ class BookingsController < ApplicationController
 
   def index
     # work in progress lol
-    @my_own_bookings = Booking.where("user_id = ?", current_user.id)
+    @my_own_bookings = Booking.where("user_id = ?", current_user.id).order(:date_start)
     my_ships_id = []
     current_user.ships.each do |ship|
       my_ships_id << ship.id
     end
-    @my_ships_bookings = Booking.where(:ship_id => my_ships_id)
+    @my_ships_bookings = Booking.where(:ship_id => my_ships_id).order(:date_start)
 
     # @bookings = Booking.all.order(:date_start)
     # Replace by scope when pundit

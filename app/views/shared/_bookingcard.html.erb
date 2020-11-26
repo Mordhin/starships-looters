@@ -9,13 +9,23 @@
         <div class="d-flex bk-header-details-block">
           <div>
             <h5>Owner</h5>
-            <p classe ='card-title'>
+            <p class ='card-title'>
               <%= booking.ship.user.nickname.capitalize %>
             </p>
           </div>
+<!-- TEMPORAIRE A SUPPRIMER -->
+          <div>
+            <h5>Id</h5>
+            <p class ='card-title'>
+              <%= booking.id %>
+            </p>
+          </div>
+<!-- TEMPORAIRE A SUPPRIMER -->
+
+
           <div>
             <h5>User</h5>
-            <p classe ='card-title'>
+            <p class ='card-title'>
               <%= booking.user.nickname.capitalize %>
             </p>
           </div>
@@ -49,13 +59,26 @@
         <h5>Amount:</h5>
         <p> <%= number_with_delimiter(booking.total_amount, delimiter:'.') %> 👾</p>
       </div>
+      <!-- Cas 1 : Pending/Owner-->
       <% if  booking.ship.user_id == current_user.id && booking.status.downcase == 'pending'%>
         <div class="buttons d-flex justify-content-around">
-          <%= link_to decline_booking_path(booking), method: :patch do %>
+          <%= link_to decline_booking_path(booking), method: :patch, data: { confirm: "Are you sure?"} do %>
             <button class = 'btn btn-danger'>Decline</button>
           <% end %>
-            <%= link_to validate_booking_path(booking), method: :patch do %>
+          <%= link_to validate_booking_path(booking), method: :patch, data: { confirm: "Are you sure?"} do %>
             <button class = 'btn btn-success'>Accept</button>
+          <% end %>
+      <!-- Cas 3 : Validated/Owner Validated/User Paid/Owner Paid/User -->
+      <% elsif  (booking.ship.user_id == current_user.id && ['validated', 'paid'].include?(booking.status.downcase)) || (booking.user_id == current_user.id && ['pending', 'validated', 'paid'].include?(booking.status.downcase))%>
+        <div class="buttons d-flex justify-content-around">
+          <%= link_to decline_booking_path(booking), method: :patch, data: { confirm: "Are you sure?"} do %>
+            <button class = 'btn btn-danger'>Cancel</button>
+          <% end %>
+      <!-- Cas 4 : Validated status can be paid (or not) by USER -->
+        <% elsif  booking.user_id == current_user.id && booking.status.downcase == 'validated'%>
+        <div class="buttons d-flex justify-content-around">
+          <%= link_to decline_booking_path(booking), method: :patch do %>
+            <button class = 'btn btn-info'>👾 Pay 👾</button>
           <% end %>
         </div>
       <% end %>
