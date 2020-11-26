@@ -1,13 +1,19 @@
 <div class="container-ship-index">
 
-  <div class="d-flex justify-content-between mb-5">
-    <h2 class="m-3">Ships available</h2>
-    <div class="m-3">
+  <div class="d-flex justify-content-between mt-3">
+    <h2 class="ml-3">Ships available</h2>
+    <div class="mr-3">
       <%= simple_form_for :search, url: ships_path, method: "GET", html: { class: 'form-inline' } do |f| %>
         <%= f.input :name, input_html: {value: ""}, label: false, placeholder: 'Find the perfect ship...' %>   
         <%= f.submit "Search", class: "btn btn-primary" %>
       <% end %>
     </div>
+  </div>
+
+  <div class="d-flex justify-content-end mr-3 mb-5">
+    <% if @all_ships === true %>
+      <div><%= link_to "Back to all ships", ships_path %></div>
+    <% end %>
   </div>
 
 
@@ -20,10 +26,10 @@
     <% end %>
   </div>
 
-  <div class="d-flex justify-content-center">
-    <%= link_to "See my ships", my_ships_path, class: "btn" %>
-  </div>
-  <div class="d-flex justify-content-center">
-    <%= link_to "Back to home", root_path, class: "btn" %>
+  <div class="d-flex mt-3">
+    <% if @all_ships === true %>
+      <%= link_to "All ships", ships_path, class: "btn btn-primary mr-3" %>
+    <% end %>
+    <%= link_to "My ships", my_ships_path, class: "btn btn-primary" %>
   </div>
 </div>

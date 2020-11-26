@@ -12,7 +12,7 @@
 
   <div class="d-flex justify-content-end mr-3 mb-5">
     <% if @all_my_ships === true %>
-      <div><%= link_to "All my ships", my_ships_path %></div>
+      <div><%= link_to "Back to all my ships", my_ships_path %></div>
     <% end %>
   </div>
 
@@ -33,10 +33,8 @@
     <% end %>
   </div>
 
-  <div class="d-flex justify-content-center">
-    <%= link_to "Add new ship", new_ship_path, class: "btn" %>
-  </div>
-  <div class="d-flex justify-content-center">
-    <%= link_to "All ships", ships_path, class: "btn" %>
+  <div class="d-flex mt-3">
+    <%= link_to "Add new ship", new_ship_path, class: "btn btn-primary mr-3" %>
+    <%= link_to "All ships", ships_path, class: "btn btn-primary" %>
   </div>
 </div>
