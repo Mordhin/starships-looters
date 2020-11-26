@@ -31,6 +31,7 @@ import "bootstrap";
 import { navbarScroll } from '../components/navbar_scroll';
 import { displayShipDetails } from '../components/ss_show_details';
 import { flatpickrCalendar } from "../plugins/flatpickr"
+import { loadDynamicBannerText } from '../components/banner_typed';
 import { updateBookingAmount } from '../components/update_booking_amount.js'
 
 document.addEventListener('turbolinks:load', () => {
@@ -39,5 +40,6 @@ document.addEventListener('turbolinks:load', () => {
   navbarScroll();
   displayShipDetails();
   flatpickrCalendar();
+  loadDynamicBannerText();
   updateBookingAmount();
 });
