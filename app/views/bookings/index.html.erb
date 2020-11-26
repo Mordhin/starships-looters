@@ -2,7 +2,7 @@
   <h1>Booking Requests</h1>
   <div class="p-3 shadow-lg mb-5">
     <h2>INCOMING RIDES</h2>
-    <div class="booking_cards">
+    <div class="cards">
       <% @my_own_bookings.each do |booking| %>
         <%# <%= link_to 'booking', do %>
           <%= render 'shared/bookingcard', booking: booking %>
@@ -12,7 +12,7 @@
   </div>
   <div class="p-3 shadow-lg mb-5">
     <h2>MY MONKEY BUSINESS</h2>
-    <div class="booking_cards">
+    <div class="cards">
       <% @my_ships_bookings.each do |booking| %>
         <%# <%= link_to 'booking', do %>
           <%= render 'shared/bookingcard', booking: booking %>
