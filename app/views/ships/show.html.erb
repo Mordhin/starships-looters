@@ -71,7 +71,27 @@
       <div class="d-flex">
         <li class="list-group-item w-50 d-flex">
           <h5>Size</h5>
-          <div><%= @ship.size %></div>
+        <% if @ship.size == 'micro' %>
+          <div>
+            <i class="fas fa-atom"></i>
+            <%=  @ship.size.capitalize if @ship.size %>
+          </div>
+        <% elsif @ship.size == 'small' %>
+          <div>
+            <i class="fas fa-dot-circle"></i>
+            <%=  @ship.size.capitalize if @ship.size %>
+          </div>
+        <% elsif @ship.size == 'big' %>
+          <div>
+            <i class="fab fa-docker"></i>
+            <%=  @ship.size.capitalize if @ship.size %>
+          </div>
+        <% elsif @ship.size  == 'planetwide' %>
+          <div>
+            <i class="fas fa-globe"></i>
+            <%=  @ship.size.capitalize if @ship.size %>
+          </div>
+        <% end %>
         </li>
         <li class="list-group-item w-50 d-flex">
           <h5>Crew capacity</h5>
