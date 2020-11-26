@@ -1,5 +1,34 @@
 <div class="container">
-  <h2>Edit your ship!</h2>
 
-  <%= render 'shared/ship_add_edit_form', ship: @ship %>
+  <div class="d-flex mt-5">
+    
+    
+  
+    <div class="form-part w-50 p-3">
+      <%= simple_form_for(@ship) do |f| %>
+  <!-- <%= f.hidden_field :user_id, value: current_user.id %> -->
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :location %>
+        <%= f.input :purpose, collection: ['war', 'holiday', 'race', 'planet eradication', 'galactical space party'] %>
+        <%= f.input :size, collection: ['micro', 'small', 'big', 'planetwide'] %>
+        <%= f.input :crew_capacity %>
+    </div>
+
+      <div class='form-card d-block w-50 p-3 mr-3'>
+        <div class="form-img d-flex justify-content-center align-items-center">
+          <h2>Edit your ship!</h2>
+        </div>
+        <br>
+        <%= f.input :price_per_day %>
+        <%= f.input :photo, as: :file, label: 'Choose a nice picture for your ship' %>
+        <%= f.input :available, :input_html => { :checked => true }, label: 'Notify users your ship is available!' %>
+        <div class="d-flex form-buttons">
+          <%= link_to "Cancel", ships_path, class: "btn btn-danger w-100 mr-1" %>
+          <%= f.submit "Submit", class: "btn btn-success w-100"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
 </div>
