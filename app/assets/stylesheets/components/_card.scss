@@ -73,16 +73,43 @@ a:hover {
 }
 
 // My bookings
-.bk-header {
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
   align-items: center;
-  img {
-    width: 200px;
-    margin-right: 1em;
-  }
 }
 
-.bk-footer {
-  justify-content: center;
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
 }
 
 // responsive
@@ -94,18 +121,6 @@ a:hover {
   .c-home {
     grid-template-columns: 1fr 1fr;
   }
-
-  .bk-header {
-    flex-direction: column;
-    align-items: flex-start;
-    img {
-      margin-bottom: 1em;
-    }
-  }
-
-  .bk-footer {
-    justify-content: flex-start;
-  }
 }
 
 @media(max-width: 992px) {
@@ -116,10 +131,6 @@ a:hover {
   .c-home {
     grid-template-columns: 1fr;
   }
-  
-  .bk-details {
-    flex-direction: column;
-  }
 }
 
 @media(max-width: 768px) {
@@ -127,12 +138,8 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
-  .bk-split-block {
-    flex-direction: column;
-  }
-
-  .bk-footer {
-    flex-direction: column;
+  .to-hide {
+    display: none;
   }
 }
 
