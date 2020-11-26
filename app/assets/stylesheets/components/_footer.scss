@@ -3,8 +3,12 @@
   color: white;
   height: 75px;
   box-shadow: 0 .125rem .50rem rgba(black, .75);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 15px;
   margin-top: 40px;
+  font-size: 12px;
+  i {
+    margin: 5px 10px;
+    color: $success;
+    font-size: 30px;
+  }
 } 
