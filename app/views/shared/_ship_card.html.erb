@@ -1,0 +1,9 @@
+<%= link_to ship_path(ship.id), class: "card-img" do %>
+  <div class="card c-ship" style="background-image: linear-gradient(rgba(10, 10, 10, 0.3), rgba(240, 240, 240, 0.3)), url('<%= cl_image_path ship.photo.key %>')">
+    <h3 class="c-ship-name"><%= ship.name %></h3>
+    <div class="c-ship-details">
+      <h3><%= ship.user.nickname.capitalize %></h3>
+      <h3><%= "#{number_with_delimiter(ship.price_per_day, delimiter: '.')} ₹"%></h3>
+    </div>
+  </div>
+<% end %>
