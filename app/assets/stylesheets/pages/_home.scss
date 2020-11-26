@@ -1,5 +1,6 @@
 // Specific CSS for your home-page
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
 
 
 .home {
@@ -17,6 +18,12 @@
   font-weight: 600;
   font-size: 80px;
   text-shadow: 0 .125rem .50rem rgba(black, .75);
+}
+
+.subtitle {
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
 }
 
 
