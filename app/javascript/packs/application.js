@@ -37,4 +37,10 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   navbarScroll();
   displayShipDetails();
+  flatpickr(".datepicker", {
+    mode: "range",
+    // dateFormat: "D d/m/Y",
+    conjunction: " and ",
+    defaultDate: ["today", new Date().fp_incr(7)]
+  });
 });

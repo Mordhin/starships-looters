@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    date_range
   end
 
   def create
@@ -24,7 +25,9 @@ class BookingsController < ApplicationController
     @booking.ship = @ship
     @booking.user = current_user
     @booking.status = 'Pending'
-
+    date_range = set_params[:date_start].split(' to ')
+    @booking.date_start = date_range[0]
+    @booking.date_end = date_range[1]
     if @booking.save
       redirect_to bookings_path, notice: 'Your booking has been created'
     else
@@ -49,6 +52,10 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def date_range
+
+  end
 
   def find_booking
     @booking = Booking.find(params[:id])
