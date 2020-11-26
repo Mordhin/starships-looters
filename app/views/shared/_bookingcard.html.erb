@@ -59,7 +59,7 @@
             <button class = 'btn btn-success'>Accept</button>
           <% end %>
       <!-- Cas 3 : Validated/Owner Validated/User Paid/Owner Paid/User -->
-      <% elsif  (booking.ship.user_id == current_user.id && ['validated', 'paid'].include?(booking.status.downcase)) || (booking.user_id == current_user.id && ['pending', 'validated', 'paid'].include?(booking.status.downcase))%>
+      <% elsif  (booking.ship.user_id == current_user.id && ['validated', 'paid'].include?(booking.status.downcase)) || (booking.user_id == current_user.id && ['pending', 'paid'].include?(booking.status.downcase))%>
         <div class="buttons d-flex justify-content-around">
           <%= link_to decline_booking_path(booking), method: :patch, data: { confirm: "Are you sure?"} do %>
             <button class = 'btn btn-danger'>Cancel</button>

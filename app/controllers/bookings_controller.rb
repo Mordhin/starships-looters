@@ -5,13 +5,18 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: %i[decline validate]
 
   def index
-    # work in progress lol
+    # Incoming rides
     @my_own_bookings = Booking.where("user_id = ?", current_user.id).order(:date_start)
+
+    # My monkey business
     my_ships_id = []
     current_user.ships.each do |ship|
       my_ships_id << ship.id
     end
     @my_ships_bookings = Booking.where(:ship_id => my_ships_id).order(:date_start)
+
+    # Past rides and monkey business
+
 
     # @bookings = Booking.all.order(:date_start)
     # Replace by scope when pundit
