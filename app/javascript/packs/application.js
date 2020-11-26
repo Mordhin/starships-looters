@@ -30,6 +30,7 @@ import "bootstrap";
 
 import { navbarScroll } from '../components/navbar_scroll';
 import { displayShipDetails } from '../components/ss_show_details';
+import "../plugins/flatpickr"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
