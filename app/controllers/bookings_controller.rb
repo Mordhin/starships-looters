@@ -1,3 +1,5 @@
+require 'date'
+
 class BookingsController < ApplicationController
   before_action :find_ship, only: %i[new create destroy]
   before_action :find_booking, only: %i[decline validate]
@@ -21,12 +23,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(set_params)
-    @booking.ship = @ship
-    @booking.user = current_user
-    @booking.status = 'Pending'
-    date_range = set_params[:date_start].split(' to ')
-    @booking.date_start = date_range[0]
-    @booking.date_end = date_range[1]
+    update_booking
     if @booking.save
       redirect_to bookings_path, notice: 'Your booking has been created'
     else
@@ -62,5 +59,15 @@ class BookingsController < ApplicationController
 
   def set_params
     params.require(:booking).permit(:date_start, :date_end, :crew_size)
+  end
+
+  def update_booking
+    @booking.ship = @ship
+    @booking.user = current_user
+    @booking.status = 'Pending'
+    date_range = set_params[:date_start].split(' to ')
+    @booking.date_start = Date.parse(date_range[0])
+    @booking.date_end = Date.parse(date_range[1])
+    @booking.total_amount = ((Date.parse(date_range[1]) - Date.parse(date_range[0])) * @ship.price_per_day.to_i).to_i
   end
 end

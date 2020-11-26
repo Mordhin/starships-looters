@@ -16,7 +16,7 @@ const updateBookingAmount = () => {
       totalDays = (endDate - startDate) / 86400000;
       price = parseInt(pricePerDay,10) * parseInt(totalDays, 10);
       if (document.querySelector('.datepicker').value.length > 10) {
-        document.getElementById("booking_submit").value = `Book for ${totalDays} days and ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ₹`
+        document.getElementById("booking_submit").value = `Book for ${totalDays} day(s) and ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ₹`
       }
     });
   };

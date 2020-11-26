@@ -13,7 +13,7 @@
   <%= simple_form_for ([@ship,@booking]) do |f| %>
   <%= f.input :crew_size, label: 'Attendants',input_html: { min: 0 }, placeholder: 'Enter how many people will board please' %>
   <%= f.input :date_start,label: 'Choose dates', as: :string, input_html: {class: 'datepicker'} %>
-  <%= f.submit 'CHOOOOOOOOOSE YOUR DATES !', class: 'btn btn-success', id: 'booking_submit' %>
+  <%= f.submit class: 'btn btn-success', id: 'booking_submit' %>
   <% end %>
 
   <div class="d-flex justify-content-center">
