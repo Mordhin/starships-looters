@@ -1,14 +1,14 @@
 <div class="container-ship-index">
 
-<div class="d-flex justify-content-between mb-5">
-  <h2 class="m-3">Ships available</h2>
-  <div class="m-3">
-    <%= simple_form_for :search, url: ships_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :name, input_html: {value: ""}, label: false, placeholder: 'Find the perfect ship...' %>   
-      <%= f.submit "Search", class: "btn btn-primary" %>
-    <% end %>
+  <div class="d-flex justify-content-between mb-5">
+    <h2 class="m-3">Ships available</h2>
+    <div class="m-3">
+      <%= simple_form_for :search, url: ships_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+        <%= f.input :name, input_html: {value: ""}, label: false, placeholder: 'Find the perfect ship...' %>   
+        <%= f.submit "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
-</div>
 
 
 
