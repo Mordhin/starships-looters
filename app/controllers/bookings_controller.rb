@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(set_params)
-    @booking.price_cents = 0
+    @booking.price_cents = @booking.total_amount/100
     update_booking
     if @booking.save
       redirect_to bookings_path, notice: 'Your booking has been created'
