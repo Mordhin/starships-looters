@@ -30,8 +30,7 @@
             <% end %>
           </div>
         </div>
-        <div class="ss-header-img">
-          <%= cl_image_tag @ship.photo.key, class: "ship-show-picture" if @ship.photo.attached? %>
+        <div class="ss-header-img" style="background-image: url('<%= cl_image_path @ship.photo.key %>')">>
         </div>
       </div>
     </li>
