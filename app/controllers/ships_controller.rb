@@ -43,10 +43,13 @@ class ShipsController < ApplicationController
   end
 
   def edit
+    @ship = Ship.find(params[:id])
   end
 
   def update
     @ship.update(ship_params)
+    @ship.save
+    
     redirect_to ship_path(@ship)
   end
 
