@@ -1,5 +1,5 @@
 <%= link_to ship_path(ship.id), class: "card-img" do %>
-  <div class="card c-ship" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url('<%= cl_image_path ship.photo.key %>')">
+  <div class="card c-ship" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url('<%= cl_image_path ship.photo.key if ship.photo.key %>')">
     <h3 class="c-ship-name"><%= ship.name %></h3>
     <div class="c-ship-details">
       <h3 class="d-flex justify-content-end"><%= ship.crew_capacity %> <i class="fas fa-users"></i></h3>

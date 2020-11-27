@@ -1,9 +1,6 @@
 <div class="container">
 
   <div class="d-flex mt-5">
-    
-    
-  
     <div class="form-part w-50 p-3">
       <%= simple_form_for(@ship) do |f| %>
   <!-- <%= f.hidden_field :user_id, value: current_user.id %> -->
@@ -13,8 +10,6 @@
         <%= f.input :purpose, collection: ['war', 'holiday', 'race', 'planet eradication', 'galactical space party'] %>
         <%= f.input :size, collection: ['micro', 'small', 'big', 'planetwide'] %>
         <%= f.input :crew_capacity %>
-        
-        
     </div>
 
       <div class='form-card d-block w-50 p-3 mr-3'>
@@ -32,12 +27,5 @@
       </div>
     </div>
   <% end %>
-
-
-
-    
   </div>
-  
-
-
 </div>
