@@ -1,0 +1,23 @@
+.form-card {
+  position: relative;
+  top: 33px;
+
+}
+
+.form-part {
+  
+}
+
+.form-buttons {
+  margin-top: 41px;
+}
+
+.form-img {
+  background-image:  linear-gradient(to bottom, rgba(51, 34, 66, 0.3), rgba(0, 0, 0, 0.3)), asset-url('form.jpg') ;
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+  color: white;
+  box-shadow: 0 .125rem .50rem rgba(black, .75);
+  text-shadow: 0 .125rem .50rem rgba(black, .75);
+}
