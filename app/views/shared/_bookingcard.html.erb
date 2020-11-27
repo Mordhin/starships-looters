@@ -1,7 +1,7 @@
 
 <div class="card-product mb-1">
   <%= cl_image_tag booking.ship.photo.key if booking.ship.photo.attached? %>
-  <div class="card-product-info ml-2 w-100">
+  <div class="card-product-info w-100">
     <div class="d-flex justify-content-between">
       <div class="card-title">
         <%= "#{booking.ship.name} #{booking.id}" %>
@@ -10,7 +10,41 @@
           <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_booking_path(booking), class: "edit pr-2" %>
         <% end %>
       </div>
-      <% if  booking.ship.user_id == current_user.id && booking.status.downcase == 'pending'%>
+
+    </div>
+    <div class="d-flex justify-content-around">
+      <% unless booking.ship.user.nickname == current_user.nickname  %>
+        <div class="to-hide">
+          <h2>Owner</h2>
+          <div><%= booking.ship.user.nickname.capitalize %></div>
+        </div>
+      <% end %>
+      <% unless booking.user.nickname == current_user.nickname %>
+        <div class="to-hide">
+          <h2>Requestor</h2>
+          <div><%= booking.user.nickname.capitalize %></div>
+        </div>
+      <% end %>
+      <div>
+        <h2>Starting Date</h2>
+        <div><%= booking.date_start %></div>
+      </div>
+      <div>
+        <h2> Ending Date</h2>
+        <div><%= booking.date_end %></div>
+      </div>
+      <div class="to-hide">
+        <h2>Attendants</h2>
+        <div> <%= number_with_delimiter(booking.crew_size, delimiter:'.') %></div>
+      </div>
+      <div>
+        <h2>Amount</h2>
+        <div> <%= number_with_delimiter(booking.total_amount, delimiter:'.') %> 👾</div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around card-product-footer">
+      <div class="status"><strong><%=booking.status.upcase %></strong></div>
+              <% if  booking.ship.user_id == current_user.id && booking.status.downcase == 'pending'%>
         <div class="buttons">
           <%= link_to decline_booking_path(booking), method: :patch, data: { confirm: "Are you sure you want to decline?"} do %>
             <button class = 'btn btn-danger'>☠ Decline ☠</button>
@@ -48,40 +82,6 @@
               <% end %>
             </div>
       <% end %>
-    </div>
-    <div class="d-flex justify-content-around">
-      <% unless booking.ship.user.nickname == current_user.nickname  %>
-        <div class="to-hide">
-          <h2>Owner</h2>
-          <div><%= booking.ship.user.nickname.capitalize %></div>
-        </div>
-      <% end %>
-      <% unless booking.user.nickname == current_user.nickname %>
-        <div class="to-hide">
-          <h2>Requestor</h2>
-          <div><%= booking.user.nickname.capitalize %></div>
-        </div>
-      <% end %>
-      <div>
-        <h2>Starting Date</h2>
-        <div><%= booking.date_start %></div>
-      </div>
-      <div>
-        <h2> Ending Date</h2>
-        <div><%= booking.date_end %></div>
-      </div>
-      <div class="to-hide">
-        <h2>Attendants</h2>
-        <div> <%= number_with_delimiter(booking.crew_size, delimiter:'.') %></div>
-      </div>
-      <div>
-        <h2>Amount</h2>
-        <div> <%= number_with_delimiter(booking.total_amount, delimiter:'.') %> 👾</div>
-      </div>
-      <div>
-        <h2>Status</h2>
-        <div><%=booking.status.capitalize %></div>
-      </div>
     </div>
   </div>
 </div>
