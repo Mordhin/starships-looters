@@ -57,10 +57,11 @@ users.each do |user|
     ship.description = Faker::Movie.quote
     ship.location = Faker::Movies::StarWars.planet
     ship.price_per_day = Random.new.rand(10_000..999_999_999)
+    ship.price = ship.price_per_day/10
     ship.purpose = SHIPS_PURPOSES.sample
     ship.size = SHIPS_SIZES.sample
     ship.crew_capacity = Random.new.rand(1..12_000)
-    ship.save
+    ship.save!
   end
 end
 
