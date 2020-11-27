@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
 
   def index
     # Incoming rides
-    @my_own_bookings = Booking.where(user_id: current_user.id).where.not(status: ['cancelled', 'validated']).order(:date_start)
+    @my_own_bookings = Booking.where(user_id: current_user.id).where.not(status: ['cancelled', 'closed']).order(:date_start)
 
     # My monkey business
     my_ships_id = []
