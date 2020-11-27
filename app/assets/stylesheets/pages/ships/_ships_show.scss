@@ -2,9 +2,11 @@
   width: 40%;
 }
 
-.ss-header-img img {
-  object-fit: cover;
-  position: center;
+.ss-header-img {
+  width: 60%;
+  height: 402px;
+  background-size: cover;
+  background-position: center;
 }
 
 h2, h5 {
