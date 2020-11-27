@@ -151,7 +151,11 @@ a:hover {
 
 @media(max-width: 768px) {
   .c-index {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr ;
+  }
+
+  .c-home {
+    grid-template-columns: 1fr ;
   }
 
   .to-hide {

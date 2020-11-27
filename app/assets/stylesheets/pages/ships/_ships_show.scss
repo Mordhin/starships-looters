@@ -9,13 +9,31 @@
 
 h2, h5 {
   font-weight: bold;
+ 
+}
+
+.container-ship-index h2 {
+  font-size: 64px;
+  color:rgb(21, 21, 21);
+  text-shadow: 0 .125rem .50rem rgba(0, 0, 0, .5);
 }
 
 h5 {
   width: 200px;
 }
 
-body {
+.background-img {
   background-image: asset-url('body_bg_1.png');
   background-repeat: no-repeat;
+  opacity: 0.3;
+  height: 100vh;
+  width: 100vh;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+
+}
+
+.foreground {
+  
 }
