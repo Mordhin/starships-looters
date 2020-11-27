@@ -1,23 +1,36 @@
-<div class="tabs-container">
-  <div class="tab-menu">
-    <div class="tabs">
-      <input type="radio" name="myradio" checked>
-        <label>🚀<span class="label-lg">Incoming rides⭐</span></label>
-      </input>
-      <div class="tab-content">
-        <% @my_own_bookings.each do |booking| %>
-        <%# <%= link_to 'booking', do %>
-          <%= render 'shared/bookingcard', booking: booking %>
-        <%# <% end %>
-        <% end %>
+<div class="container">
 
+<div class="accordion" id="accordionExample">
+
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          🚀<span class="to-hide">Incoming rides⭐</span>
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+          <% @my_own_bookings.each do |booking| %>
+          <%# <%= link_to 'booking', do %>
+            <%= render 'shared/bookingcard', booking: booking %>
+          <%# <% end %>
+          <% end %>
       </div>
     </div>
-    <div class="tabs">
-      <input type="radio" name="myradio">
-        <label> 👾 <span class="label-lg">Space Moulah 👽</span></label>
-      </input>
-      <div class="tab-content">
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          👾 <span class="to-hide">Space Moulah 👽</span>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
         <% @my_ships_bookings.each do |booking| %>
           <%# <%= link_to 'booking', do %>
             <%= render 'shared/bookingcard', booking: booking %>
@@ -25,11 +38,17 @@
         <% end %>
       </div>
     </div>
-    <div class="tabs">
-      <input type="radio" name="myradio">
-        <label> ⏰ <span class="label-lg">Good ol' stuff 📑</span></label>
-      </input>
-      <div class="tab-content">
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          ⏰ <span class="to-hide">Good ol' stuff 📑</span>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
         <% @all_my_past_bookings.each do |booking| %>
           <%# <%= link_to 'booking', do %>
             <%= render 'shared/bookingcard', booking: booking %>
@@ -39,3 +58,10 @@
     </div>
   </div>
 </div>
+
+
+
+
+</div>
+
+
