@@ -6,16 +6,16 @@ class BookingsController < ApplicationController
 
   def index
     # Incoming rides
-    @my_own_bookings = Booking.where(user_id: current_user.id).where.not(status: ['cancelled', 'validated']).order(:date_start)
+    @my_own_bookings = Booking.where(user_id: current_user.id).where.not(status: ['cancelled', 'closed']).order(:date_start)
 
     # My monkey business
     my_ships_id = []
     current_user.ships.each do |ship|
       my_ships_id << ship.id
     end
-    @my_ships_bookings = Booking.where(:ship_id => my_ships_id).where.not(status: ['cancelled', 'validated']).order(:date_start)
+    @my_ships_bookings = Booking.where(:ship_id => my_ships_id).where.not(status: ['cancelled', 'closed']).order(:date_start)
 
-    @all_my_past_bookings = Booking.where(:status => ['cancelled', 'closed'], user_id: current_user.id).or(Booking.where(:status => ['cancelled', 'closed'], :ship_id => my_ships_id))
+    @all_my_past_bookings = Booking.where(:status => ['cancelled', 'closed'], user_id: current_user.id).or(Booking.where(:status => ['cancelled', 'closed'], :ship_id => my_ships_id)).order(updated_at: :desc)
     # Replace by scope when pundit
   end
 
@@ -41,9 +41,12 @@ class BookingsController < ApplicationController
     @ship = Ship.find(@booking.ship_id)
     price_before = ActiveSupport::NumberHelper::number_to_delimited(@booking.total_amount, delimiter: '.')
     update_booking
-    @booking.save
-    price_after = ActiveSupport::NumberHelper::number_to_delimited(@booking.total_amount, delimiter: '.')
-    redirect_to bookings_path, notice: "Your booking #{@booking.id} has been edited. #{price_before} 👾 ➡ #{price_after} 👾"
+    if @booking.save
+      price_after = ActiveSupport::NumberHelper::number_to_delimited(@booking.total_amount, delimiter: '.')
+      redirect_to bookings_path, notice: "Your booking #{@booking.id} has been edited. #{price_before} 👾 ➡ #{price_after} 👾"
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -103,10 +106,16 @@ class BookingsController < ApplicationController
     @booking.ship = @ship
     @booking.user = current_user
     @booking.status = 'pending'
+    @booking.crew_size = set_params[:crew_size]
     date_range = set_params[:date_start].split(' to ')
     @booking.date_start = Date.parse(date_range[0])
+    if date_range[1].nil?
+      @booking.date_end = @booking.date_start
+      @booking.total_amount = @ship.price_per_day.to_i
+    else
     @booking.date_end = Date.parse(date_range[1])
     @booking.total_amount = ((Date.parse(date_range[1]) - Date.parse(date_range[0]) + 1) * @ship.price_per_day.to_i).to_i
+    end
   end
 
   def save_redirect
