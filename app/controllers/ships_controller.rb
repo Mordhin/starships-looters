@@ -47,10 +47,12 @@ class ShipsController < ApplicationController
   end
 
   def update
-    @ship.update(ship_params)
-    @ship.save
-    
-    redirect_to ship_path(@ship)
+    if  @ship.update(ship_params)
+      @ship.save
+      redirect_to ship_path(@ship)
+    else
+      render :edit
+    end
   end
 
   def profil
