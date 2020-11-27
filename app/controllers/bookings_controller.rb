@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     end
     @my_ships_bookings = Booking.where(:ship_id => my_ships_id).where.not(status: ['cancelled', 'closed']).order(:date_start)
 
-    @all_my_past_bookings = Booking.where(:status => ['cancelled', 'closed'], user_id: current_user.id).or(Booking.where(:status => ['cancelled', 'closed'], :ship_id => my_ships_id))
+    @all_my_past_bookings = Booking.where(:status => ['cancelled', 'closed'], user_id: current_user.id).or(Booking.where(:status => ['cancelled', 'closed'], :ship_id => my_ships_id)).order(updated_at: :desc)
     # Replace by scope when pundit
   end
 
