@@ -6,19 +6,16 @@ class BookingsController < ApplicationController
 
   def index
     # Incoming rides
-    @my_own_bookings = Booking.where("user_id = ?", current_user.id).order(:date_start)
+    @my_own_bookings = Booking.where(user_id: current_user.id).where.not(status: ['cancelled', 'validated']).order(:date_start)
 
     # My monkey business
     my_ships_id = []
     current_user.ships.each do |ship|
       my_ships_id << ship.id
     end
-    @my_ships_bookings = Booking.where(:ship_id => my_ships_id).order(:date_start)
+    @my_ships_bookings = Booking.where(:ship_id => my_ships_id).where.not(status: ['cancelled', 'validated']).order(:date_start)
 
-    # Past rides and monkey business
-
-
-    # @bookings = Booking.all.order(:date_start)
+    @all_my_past_bookings = Booking.where(:status => ['cancelled', 'closed'], user_id: current_user.id).or(Booking.where(:status => ['cancelled', 'closed'], :ship_id => my_ships_id))
     # Replace by scope when pundit
   end
 

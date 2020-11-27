@@ -32,7 +32,7 @@ a {
   text-decoration: none;
   &:hover {
     text-decoration: none;
-    opacity: 0.7;
+    opacity: .7;
   }
 }
 
@@ -125,7 +125,7 @@ a:hover {
 
 @media(max-width: 992px) {
   .c-index {
-    grid-template-columns: 1fr 1fr;  
+    grid-template-columns: 1fr 1fr;
   }
 
   .c-home {
