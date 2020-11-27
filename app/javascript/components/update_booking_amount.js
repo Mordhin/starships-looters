@@ -1,15 +1,13 @@
 const updateBookingAmount = () => {
-  const submitBtn = document.getElementById("booking_submit");
   const calendar = document.querySelector(".datepicker");
-  const pricePerDay = document.querySelector("#price-per-day").innerText;
-  let startDate = Date.parse(document.querySelector('.datepicker').value.substring(0,10));
-  let endDate = Date.parse(document.querySelector('.datepicker').value.substring(14));
-  let totalDays = (endDate - startDate) / 86400000;
-  let price = parseInt(pricePerDay,10) * parseInt(totalDays, 10);
-  console.log(totalDays);
-  console.log(pricePerDay);
-  console.log(price);
+
   if (calendar) {
+    const submitBtn = document.getElementById("booking_submit");
+    const pricePerDay = document.querySelector("#price-per-day").innerText;
+    let startDate = Date.parse(document.querySelector('.datepicker').value.substring(0,10));
+    let endDate = Date.parse(document.querySelector('.datepicker').value.substring(14));
+    let totalDays = (endDate - startDate) / 86400000;
+    let price = parseInt(pricePerDay,10) * parseInt(totalDays, 10);
     calendar.addEventListener("change", () => {
       startDate = Date.parse(document.querySelector('.datepicker').value.substring(0,10));
       endDate = Date.parse(document.querySelector('.datepicker').value.substring(14));
