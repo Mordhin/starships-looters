@@ -9,6 +9,7 @@ require 'faker'
 require 'date'
 require 'open-uri'
 # DELETING ALL DATA
+Order.delete_all
 Booking.delete_all
 Ship.delete_all
 User.delete_all
