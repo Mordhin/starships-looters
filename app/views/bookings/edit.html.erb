@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="card-sm d-flex justify-content-around align-items-center">
+    <h2>Will you ride <%= @ship.name %> ?</h2>
+    <div><%= cl_image_tag @ship.photo.key, width: 200, class: 'rounded' if @ship.photo.attached? %></div>
+    <div>
+      <div> <strong>Owner nickname : </strong><%=@ship.user.nickname.capitalize%></div>
+      <div> <strong>Crew capacity : </strong><%=number_with_delimiter(@ship.crew_capacity, delimiter: '.')%> </div>
+      <div> <strong>Price per day : </strong><%= number_with_delimiter(@ship.price_per_day, delimiter: '.')%> ₹</div>
+      <span id="price-per-day"><%= @ship.price_per_day %></span>
+    </div>
+  </div>
+
+  <%= simple_form_for @booking, method: :patch do |f| %>
+  <%= f.input :crew_size, label: 'Attendants',input_html: { min: 0 }, placeholder: 'Enter how many people will board please' %>
+  <%= f.input :date_start,label: 'Choose dates', as: :string, input_html: {class: 'datepicker'} %>
+  <%= f.submit class: 'btn btn-success', id: 'booking_submit' %>
+  <% end %>
+
+  <div class="d-flex justify-content-center">
+    <%= link_to "Back to ship", ship_path(@ship), class: "btn" %>
+  </div>
+
+  <!-- Work in progress -->
+
+</div>
