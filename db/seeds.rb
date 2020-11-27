@@ -57,7 +57,7 @@ users.each do |user|
     ship.user_id = User.find_by_nickname(user).id
     ship.description = Faker::Movie.quote
     ship.location = Faker::Movies::StarWars.planet
-    ship.price_per_day = Random.new.rand(10_000..999_999_999)
+    ship.price_per_day = Random.new.rand(10_000..999_999)
     ship.purpose = SHIPS_PURPOSES.sample
     ship.size = SHIPS_SIZES.sample
     ship.crew_capacity = Random.new.rand(1..12_000)
