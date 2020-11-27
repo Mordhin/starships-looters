@@ -106,7 +106,7 @@ class BookingsController < ApplicationController
     date_range = set_params[:date_start].split(' to ')
     @booking.date_start = Date.parse(date_range[0])
     @booking.date_end = Date.parse(date_range[1])
-    @booking.total_amount = ((Date.parse(date_range[1]) - Date.parse(date_range[0])) * @ship.price_per_day.to_i).to_i
+    @booking.total_amount = ((Date.parse(date_range[1]) - Date.parse(date_range[0]) + 1) * @ship.price_per_day.to_i).to_i
   end
 
   def save_redirect
