@@ -128,6 +128,14 @@ a:hover {
   padding: 16px;
 }
 
+.card {
+  background-color: $blue;
+}
+
+.btn-link {
+  color: $light-blue
+}
+
 // responsive
 @media(max-width: 1550px) {
   .c-index {
