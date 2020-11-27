@@ -41,6 +41,7 @@ class BookingsController < ApplicationController
     @ship = Ship.find(@booking.ship_id)
     price_before = ActiveSupport::NumberHelper::number_to_delimited(@booking.total_amount, delimiter: '.')
     update_booking
+    @booking.save
     price_after = ActiveSupport::NumberHelper::number_to_delimited(@booking.total_amount, delimiter: '.')
     redirect_to bookings_path, notice: "Your booking #{@booking.id} has been edited. #{price_before} 👾 ➡ #{price_after} 👾"
   end
