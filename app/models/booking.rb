@@ -2,6 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :ship
   monetize :price_cents
+  has_one :order
   validates :user, :ship, presence: true
   validates :date_start, :date_end, :crew_size, presence: true
   validate :end_after_start

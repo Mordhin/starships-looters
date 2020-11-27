@@ -7,13 +7,13 @@ class OrdersController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: booking.ship.name,
-        images: [teddy.photo_url],
+        # images: [booking.ship.photo_url],
         amount: booking.price_cents,
         currency: 'eur',
         quantity: 1
       }],
-      success_url: order_url(order),
-      cancel_url: order_url(order)
+      success_url: bookings_url,
+      cancel_url: bookings_url
     )
 
     order.update(checkout_session_id: session.id)

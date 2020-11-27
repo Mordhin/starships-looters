@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 2020_11_27_122817) do
     t.integer "amount_cents", default: 0, null: false
     t.string "checkout_session_id"
     t.bigint "user_id", null: false
-    t.bigint "bookings_id", null: false
+    t.bigint "booking_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["bookings_id"], name: "index_orders_on_bookings_id"
+    t.index ["booking_id"], name: "index_orders_on_booking_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2020_11_27_122817) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "ships"
   add_foreign_key "bookings", "users"
-  add_foreign_key "orders", "bookings", column: "bookings_id"
+  add_foreign_key "orders", "bookings"
   add_foreign_key "orders", "users"
   add_foreign_key "ships", "users"
 end
