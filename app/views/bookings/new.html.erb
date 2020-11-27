@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5" id = 'footer-page'>
   <div class="card-sm d-flex justify-content-around align-items-center">
     <h2>Will you ride <%= @ship.name %> ?</h2>
     <div><%= cl_image_tag @ship.photo.key, width: 200, class: 'rounded' if @ship.photo.attached? %></div>
