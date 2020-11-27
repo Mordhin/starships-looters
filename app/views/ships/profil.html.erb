@@ -20,15 +20,7 @@
     <% @ships.each do |ship| %>
       <div>
         <%= render 'shared/ship_card', ship: ship %>
-          <div class="card-footer d-flex justify-content-between align-items-center">
-            <div>
-              <%= link_to "More info", ship_path(ship.id), class: "card-link text-primary" %>
-            </div>
-            <div>
-              <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_ship_path(ship.id), class: "edit pr-2" %>
-              <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, ship_path(ship), method: :delete, data: { confirm: "Are you sure?"}, class: "trash pr-2" %>
-            </div>
-          </div>
+          
       </div>
     <% end %>
   </div>
