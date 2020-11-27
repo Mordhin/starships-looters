@@ -39,7 +39,7 @@ ships_params = [{ name: "Pan Am Space Clipper", origin_universe: "2001: A Space 
   { name: "Swordfish II", origin_universe: "Cowboy Bebop", img_url: 'https://i.redd.it/4d3thzud6y051.jpg'},
   { name: "FeeCo Train", origin_universe: "Oddworld", img_url: 'https://static.wikia.nocookie.net/oddworld/images/4/4a/Feeco_Depot_Train.jpg'},
   { name: "Pegasus", origin_universe: "Battlestar Galactica", img_url: 'https://rpggamer.org/uploaded_images/pegasus-04.jpg'},
-  { name: "Thunderfighter", origin_universe: "Buck Rogers", img_url: 'https://lh3.googleusercontent.com/proxy/2bmRuEDsN_z9wHTZPr-pKRoD268_ZMt6oWNUGX0OtVnllee5AY9slLrFcfSvZxkE-fPUFSNvBdigVPGvGc_6lbWWzh3lTpKKGWFyuA'},
+  { name: "Thunderfighter", origin_universe: "Buck Rogers", img_url: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ab940dbf-6b1c-43d5-9e49-aa8736340b2d/daqas05-136bdf1b-62dc-436b-95d2-1396e59847b5.jpg/v1/fill/w_1224,h_653,q_70,strp/buck_rogers___thunderfighter_remaster_by_adamkop_daqas05-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTM4NyIsInBhdGgiOiJcL2ZcL2FiOTQwZGJmLTZiMWMtNDNkNS05ZTQ5LWFhODczNjM0MGIyZFwvZGFxYXMwNS0xMzZiZGYxYi02MmRjLTQzNmItOTVkMi0xMzk2ZTU5ODQ3YjUuanBnIiwid2lkdGgiOiI8PTI2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Dc2Z5Pnir9k4B5AsX9HgEAV0c9PmAeLu-bx9OFnH9YQ'},
   { name: "Death Star", origin_universe: "Star Wars", img_url: 'https://static.politico.com/7f/b0/a2005849462c82cd7c6ca47d5272/maga-pop-culture.jpg'},
   { name: "Arcadia", origin_universe: "Albator", img_url: 'http://i.imgur.com/VeMKKXu.png'},
   { name: "Bebop", origin_universe: "Cowboy Bebop", img_url: 'https://static.wikia.nocookie.net/cowboybebop/images/d/d1/Bebop_Exterior_Mars.png'},
@@ -81,7 +81,8 @@ User.all.each do |user|
       date_start: random_date,
       date_end: random_date + Random.new.rand(1..30),
       crew_size: (1..ship.crew_capacity).to_a.sample,
-      status: BOOKINGS_STATUSES_WITHOUT_CLOSED.sample
+      status: BOOKINGS_STATUSES_WITHOUT_CLOSED.sample,
+      total_amount: Random.new.rand(10_000..999_999_999)
     )
   end
 end
