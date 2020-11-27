@@ -41,7 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   navbarScroll();
   displayShipDetails();
   flatpickrCalendar();
-  // loadDynamicBannerText();
+  loadDynamicBannerText();
   updateBookingAmount();
   updateStatusClass();
 });
