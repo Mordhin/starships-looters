@@ -7,7 +7,7 @@ const loadDynamicBannerText = () => {
     loop: true,
     fadeOut: true,
     fadeOutDelay: 1,
-    cursorChar: "<span class='fas fa-space-shuttle'></span>"
+    showCursor: false
   });
 }
 
