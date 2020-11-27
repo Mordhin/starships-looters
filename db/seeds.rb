@@ -60,6 +60,7 @@ users.each do |user|
     ship.purpose = SHIPS_PURPOSES.sample
     ship.size = SHIPS_SIZES.sample
     ship.crew_capacity = Random.new.rand(1..12_000)
+    ship.available = true
     ship.save
   end
 end
