@@ -1,17 +1,52 @@
+
 <div class="card-product mb-1">
   <%= cl_image_tag booking.ship.photo.key if booking.ship.photo.attached? %>
   <div class="card-product-info ml-2 w-100">
     <div class="d-flex justify-content-between">
-      <div class="card-title"><%= booking.ship.name %></div>
+      <div class="card-title">
+        <%= "#{booking.ship.name} #{booking.id}" %>
+      <!-- Edit button available only if status and start date allow it -->
+        <% if (((booking.user_id == current_user.id) && ['pending', 'paid'].include?(booking.status.downcase)) && booking.date_start >= Date.today) && booking.user_id == current_user.id %>
+          <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_booking_path(booking), class: "edit pr-2" %>
+        <% end %>
+      </div>
       <% if  booking.ship.user_id == current_user.id && booking.status.downcase == 'pending'%>
-        <div class="buttons d-flex justify-content-center">
-          <%= link_to decline_booking_path(booking), method: :patch do %>
-            <span class="far fa-times-circle btn-decline"></span>
+        <div class="buttons">
+          <%= link_to decline_booking_path(booking), method: :patch, data: { confirm: "Are you sure you want to decline?"} do %>
+            <button class = 'btn btn-danger'>☠ Decline ☠</button>
           <% end %>
-          <%= link_to validate_booking_path(booking), method: :patch do %>
-            <span class="far fa-check-circle btn-accept"></span>
+          <%= link_to validate_booking_path(booking), method: :patch, data: { confirm: "Are you sure you want to accept?"} do %>
+            <button class = 'btn btn-success'>🚀 Accept 🚀</button>
           <% end %>
         </div>
+        <!-- Cas 2 : Paid / Owner + Date check-->
+        <% elsif  booking.ship.user_id == current_user.id && booking.status.downcase == 'paid' && booking.date_end <= Date.today%>
+        <div class="buttons d-flex justify-content-around">
+          <%= link_to close_booking_path(booking), method: :patch, data: { confirm: "Are you sure you want to close?"} do %>
+            <button class = 'btn btn-info'>🔐 Close 🔐</button>
+          <% end %>
+        </div>
+        <!-- Cas 3 : Validated/Owner Validated/User Paid/Owner Paid/User + Date check-->
+        <% elsif  ((booking.ship.user_id == current_user.id && ['validated', 'paid'].include?(booking.status.downcase)) || (booking.user_id == current_user.id) && ['pending', 'paid'].include?(booking.status.downcase)) && booking.date_start >= Date.today%>
+          <div class="buttons d-flex justify-content-around">
+            <%= link_to cancel_booking_path(booking), method: :patch, data: { confirm: "Are you sure you want to cancel? Penalty or no refund if you booked. Cancellation will be remembered if you own..."} do %>
+              <button class = 'btn btn-danger'>🤖 Cancel 🤖</button>
+            <% end %>
+          </div>
+          <!-- Cas 4 : Validated status can be paid (or not) by USER -->
+          <% elsif  booking.user_id == current_user.id && booking.status.downcase == 'validated'%>
+            <div class="buttons d-flex justify-content-around">
+              <%= link_to pay_booking_path(booking), method: :patch, data: { confirm: "Please validate you have the moulah."} do %>
+                <button class = 'btn btn-info'>👾 Pay 👾</button>
+              <% end %>
+            </div>
+          <!-- Cas 5 : Validated status can be paid (or not) by USER -->
+          <% elsif ['cancelled','closed'].include?(booking.status.downcase)%>
+            <div class="buttons d-flex justify-content-around">
+              <%= link_to support_path do %>
+                <button class = 'btn btn-secondary'>👽 Request help 👽</button>
+              <% end %>
+            </div>
       <% end %>
     </div>
     <div class="d-flex justify-content-around">

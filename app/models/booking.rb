@@ -6,6 +6,7 @@ class Booking < ApplicationRecord
   validates :date_start, :date_end, :crew_size, presence: true
   validate :end_after_start
   validates :crew_size, :total_amount, numericality: { only_integer: true }
+  validates :status, inclusion: { in: %w(pending validated paid cancelled closed), message: "%{value} is not a valid status (pending, validated, paid, cancelled, closed are valid)" }
 
   private
 

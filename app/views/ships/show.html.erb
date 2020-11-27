@@ -17,7 +17,11 @@
             <div><%= @ship.description.capitalize %></div>
             <% if current_user.id === @ship.user.id %>
               <div class="text-center">
-                <%= link_to "You can't book your own ship!", '#', class: "btn btn-light w-75 mt-5" %>
+                <%= link_to "You can't book your own ship! You intergalactical dumbass.", '#', class: "btn btn-light w-75 mt-5" %>
+              </div>
+            <% elsif !@ship.available %>
+              <div class="text-center">
+                <%= link_to "Ship is not available! Come back in a century.", '#', class: "btn btn-light w-75 mt-5" %>
               </div>
             <% else %>
               <div class="text-center">

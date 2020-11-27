@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   def home
     @ships = Ship.order('RANDOM()').limit(3)
   end
+
+  def support
+  end
 end
