@@ -4,7 +4,6 @@ const updateStatusClass = () => {
   if (statuses) {
     statuses.forEach(status => {
       const statusText = status.innerText;
-      console.log(statusText);
       status.parentElement.classList.add(statusText.toLowerCase());
     });
 

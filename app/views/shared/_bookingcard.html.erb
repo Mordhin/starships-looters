@@ -42,7 +42,7 @@
         <div> <%= number_with_delimiter(booking.total_amount, delimiter:'.') %> 👾</div>
       </div>
     </div>
-    <div class="d-flex justify-content-around card-product-footer">
+    <div class="d-flex justify-content-between card-product-footer px-5">
       <div class="status"><strong><%=booking.status.upcase %></strong></div>
               <% if  booking.ship.user_id == current_user.id && booking.status.downcase == 'pending'%>
         <div class="buttons">
