@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :ships
   has_many :bookings
   has_one_attached :profile_pic
-
+  has_many :orders
   validates :email, :encrypted_password, :nickname, presence: true
   validates :email, :nickname, uniqueness: true
 end

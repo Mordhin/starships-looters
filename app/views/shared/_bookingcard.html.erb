@@ -70,6 +70,10 @@
           <!-- Cas 4 : Validated status can be paid (or not) by USER -->
           <% elsif  booking.user_id == current_user.id && booking.status.downcase == 'validated'%>
             <div class="buttons d-flex justify-content-around">
+            <%= form_tag orders_path do %>
+              <%= hidden_field_tag 'booking_id', booking.id %>
+              <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+              <% end %>
               <%= link_to pay_booking_path(booking), method: :patch, data: { confirm: "Please validate you have the moulah."} do %>
                 <button class = 'btn btn-info'>👾 Pay 👾</button>
               <% end %>

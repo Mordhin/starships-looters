@@ -76,6 +76,7 @@ User.all.each do |user|
     day = (1..28).to_a.sample
     ship = other_ships.sample
     random_date = Date.new(year, month, day)
+    total_amount = Random.new.rand(10_000..999_999)
     Booking.create!(
       user_id: user.id,
       ship_id: ship.id,
@@ -83,7 +84,8 @@ User.all.each do |user|
       date_end: random_date + Random.new.rand(1..30),
       crew_size: (1..ship.crew_capacity).to_a.sample,
       status: BOOKINGS_STATUSES_WITHOUT_CLOSED.sample,
-      total_amount: Random.new.rand(10_000..999_999_999)
+      total_amount: total_amount,
+      price_cents: total_amount*100
     )
   end
 end
