@@ -11,4 +11,10 @@
     color: $success;
     font-size: 30px;
   }
-} 
+}
+
+.footer-fix {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

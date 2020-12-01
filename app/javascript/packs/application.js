@@ -34,11 +34,13 @@ import { flatpickrCalendar } from "../plugins/flatpickr"
 import { loadDynamicBannerText } from '../components/banner_typed';
 import { updateBookingAmount } from '../components/update_booking_amount.js'
 import { updateStatusClass } from '../components/update_status_class.js'
+import  { footerScroll } from '../components/footer_scroll.js'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   navbarScroll();
+  footerScroll();
   displayShipDetails();
   flatpickrCalendar();
   loadDynamicBannerText();
