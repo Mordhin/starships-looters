@@ -15,6 +15,8 @@ We wanted to **strengthen our Ruby on Rails** skills while _still having fun_ so
 
 ## **Our project** is available ***[here][Our Project]*** for you to see
 
-You *may experience* ***some latency*** while _first accessing_ ourwebsite, this is **due to our hosting service** and is beyond our control, _please be patient_ while ***it crosses the void of space to reach you.***
+You *may experience* ***some latency*** while _first accessing_ our website, this is **due to our hosting service** and is beyond our control.
+
+ Please _be patient_ while ***it crosses the void of space to reach you.***
 
 [Our Project]:https://starships-looters.herokuapp.com
