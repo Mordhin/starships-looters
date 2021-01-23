@@ -1,6 +1,6 @@
 # Starship Looters
 
-This project was made by **a team of four people** in **5 days** while attending **[the Wagon Bootcamp](https://www.lewagon.com/fr 'Check it out')**.
+This project was made by **a team of four people** in **5 days** while attending **[the Wagon Bootcamp](https://www.lewagon.com/fr "Check it out")**.
 
 We wanted to **strengthen our Ruby on Rails** skills while _still having fun_ so we chose to go for a entertaining theme with **starship rental website** based on the concept provided by ***AirBnb***.
 
@@ -13,6 +13,8 @@ We wanted to **strengthen our Ruby on Rails** skills while _still having fun_ so
 - **A booking section** in which **users** and **owner** alike are able, *respectively*, to see ***their bookings statuses*** and ***to accept a renting request***.
 - **A payment feature** which _uses a webhook_ to **update the related booking status**.
 
-## **Our project** is available ***[here](https://starships-looters.herokuapp.com)*** for you to see
+## **Our project** is available ***[here][Our Project]*** for you to see
 
-You ***may experience some latency*** while _first accessing_ ourwebsite, this is **due to our hosting service** and is beyond our control, _please be patient_ while ***it crosses the void of space to reach you.***
+You *may experience* ***some latency*** while _first accessing_ ourwebsite, this is **due to our hosting service** and is beyond our control, _please be patient_ while ***it crosses the void of space to reach you.***
+
+[Our Project]:https://starships-looters.herokuapp.com
