@@ -1,6 +1,6 @@
 # Starship Looters
 
-This project was made by **a team of four people** in **5 days** while attending **[the Wagon Bootcamp](https://www.lewagon.com/fr, 'Check it out')**.
+This project was made by **a team of four people** in **5 days** while attending **[the Wagon Bootcamp](https://www.lewagon.com/fr 'Check it out')**.
 
 We wanted to **strengthen our Ruby on Rails** skills while _still having fun_ so we chose to go for a entertaining theme with **starship rental website** based on the concept provided by ***AirBnb***.
 
