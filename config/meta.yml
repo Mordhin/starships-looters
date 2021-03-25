@@ -1,0 +1,5 @@
+meta_product_name: "Starships Looters"
+meta_title: "Starships Looters - Travel the stars"
+meta_description: "Rent one of our beautiful ships provided by the community"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
